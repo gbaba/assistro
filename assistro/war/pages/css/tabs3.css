@@ -1,0 +1,145 @@
+/* fade id tabs */
+.fade { 
+	width:780px; 
+	margin:0px auto; 
+	}
+	
+.fade .tabs { 
+width:435px;
+margin:0px auto 0 auto;
+}
+	
+.fade .tabs li {
+  list-style:none; 
+  float:left;
+}
+  
+.fade .tabs li a { 
+  display:block;
+  float:left; 
+
+}
+  
+.fade .tabs li a:hover {
+
+
+}
+	
+.fade .tabs li a.selected { 
+
+	
+}
+.fade .items { 
+	clear:both; 
+	position:relative; 
+	top:0; 
+	left:0;
+	height:490px; 
+ }
+ 
+.fade .items div { 
+	display:none; 
+	position:absolute; 
+	top:0; 
+	left:0;
+}
+
+.image-right {
+	float:right;
+}
+
+.feature-info {
+	float:left;
+	width:300px;
+	margin-right:30px;
+	margin-left:30px;
+}
+
+.feature-info h1 {
+	font-family:Myriad Pro;
+	color:#92bb1e;
+	font-size:24px;
+	margin-top:45px;
+}
+
+.feature-info p {
+	color:#000;
+	font-size:14px;
+	line-height:16px;
+	font-family: 'PTSansRegular';
+	margin-top:10px;
+}
+
+.feature-info h3 {
+	font-size:12px;
+	color:#6a6a6a;
+	font-family: 'PTSansBold';
+	margin-top:15px;
+	display:inline-block;
+	margin-right:10px;
+}
+
+.store-img {
+	position:relative;
+	top:5px;
+}
+
+#itemce1 {
+
+	width:206px;
+	height:54px;
+	background:url(../images/plan-btn-left.jpg);
+	background-repeat:no-repeat;
+	font-size:18px;
+	text-align:center;
+	font-family: 'PTSansBold';
+	color:#fff;
+	line-height:45px;
+	text-shadow:1px 1px 1px #1c3d70;
+}
+
+#itemce1:hover {
+	background:url(../images/plan-left-blue.jpg)
+}
+
+#itemce2 {
+	background:#CF9;
+	width:210px;
+	height:42px;
+	height:54px;
+	background:url(../images/plan-btn-right.jpg);
+	background-repeat:no-repeat;
+	font-size:18px;
+	font-family: 'PTSansBold';
+	text-align:center;
+	color:#000;
+	padding-top:7px;
+	
+}
+
+#itemce2 span {
+	display:block;
+	font-size:12px;
+	color:#fff;
+	
+}
+
+#itemce2:hover {
+	background:url(../images/plan-right-blue2.jpg);
+	background-repeat:no-repeat
+}
+
+.fade .tabs li #itemce1.selected { 
+background:url(../images/plan-left-blue.jpg);
+background-repeat:no-repeat
+
+	
+}
+
+.fade .tabs li #itemce2.selected { 
+background:#6F3;
+background:url(../images/plan-right-blue2.jpg);
+background-repeat:no-repeat
+
+	
+}

@@ -1,0 +1,33 @@
+<h:form id="uploadForm" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:panelGrid id="uploadImagePopUp" rendered="true">
+	<p:dialog widgetVar="uploadDlg" resizable="false" showHeader="false" width="488">
+		<div id="top-header-popup">
+				<h1>Upload</h1>
+				<p>Upload operator photo!</p>
+				<p:commandLink onclick="uploadDlg.hide()"><div title="Close" class="fancybox-item fancybox-close"></div></p:commandLink>
+		</div>
+
+			<div class="clear"></div>
+			<div id="shadow">
+				<img src="/pages/images/smallshadow.png" />
+			</div>
+			<div class="claer"></div>
+			
+			<div id="popup-content">
+			<h2>Please choose the photo you like...</h2>
+			<img src="/pages/images/popupshadow.jpg" /> 	
+			<table style="width: 400px;height:220px">
+			<tr><td>	
+			<iframe  id="fr1" src="http://www.assistro.com/fileupload.jsp" style="width: 100%; height: 100%;" frameborder="0"></iframe>
+			</td></tr>		
+			</table>
+			</div>
+
+		</p:dialog>
+
+	</h:panelGrid>
+</h:form>

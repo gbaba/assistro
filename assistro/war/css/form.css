@@ -1,0 +1,160 @@
+.ui-helper-hidden-accessible{
+	position:absolute;
+	left:-9999px;
+}
+.pop-up-box .ui-checkbox{
+	padding:0 0 0 27px !important;
+	line-height:18px;
+	background:url(../images/bg-checkbox.gif) no-repeat;
+}
+.pop-up-box .ui-checkbox-checked{
+	background:url(../images/bg-checkbox.gif) no-repeat 0 100%;
+}
+
+/* selects */
+
+.cusel { 
+	height: 31px;
+	width:348px !important;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	font-size:13px;
+	outline:none !important;
+}
+.time-box .cusel{
+	width:255px !important;
+	height:46px;
+}
+.item03 .time-box .cusel{width:233px !important;}
+.cuselFrameRight {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	right: 0;
+	background:url(../images/bg-select.gif) no-repeat 100% 100%;
+	width:22px;
+	height:100%;
+}
+.time-box .cuselFrameRight {
+	background:url(../images/bg-arrow-down.png) no-repeat 0 20px;
+	width:24px;
+}
+.cuselText { 
+	background:url(../images/bg-select.gif) no-repeat;
+	width:308px;
+	height:31px;
+	padding:0 9px; 
+	cursor: pointer;
+	overflow: hidden;
+	outline:none !important;
+	position: relative;
+	z-index: 1;
+	font:13px/31px Verdana, Geneva, Arial, sans-serif;
+	color:#8e8e8e;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.time-box .cuselText {
+	background:url(../images/ico-time.png) no-repeat 45px 15px;
+	color:#6b6b6b;
+	width:231px;
+	padding:0 0 0 79px;
+	width:152px;
+	font:15px/45px Tahoma, Arial, Helvetica, sans-serif;
+}
+.item03 .time-box .cuselText{
+	width:132px !important;
+	padding:0 0 0 77px;
+	background:url(../images/ico-time.png) no-repeat 41px 15px;
+}
+.cusel span { 
+	display: block;
+	color:#6b6b6b;
+	font:13px/16px Verdana, Geneva, Arial, sans-serif;
+	cursor: pointer;
+	padding: 4px 9px 4px 9px; 
+}
+.time-box .cusel span{
+	font:15px/18px Tahoma, Arial, Helvetica, sans-serif;
+	padding:12px 9px 14px 79px;
+	background:#f4f4f4 url(../images/bg-select-item.gif) repeat-x 0 100%;
+}
+.time-box .cusel span:first-child{display:none;}
+.cusel span:hover,
+.cusel .cuselOptHover { 
+	background: #3399ff;
+	color: #fff !important;
+}
+/* styles for scrollbar */
+.cusel-scroll-wrap { 
+	display: block;
+	visibility: hidden;
+	position: absolute;
+	z-index:1500;
+	left: 0;
+	top: 100%;
+	background: #fff;
+	color:#ec1f27; 
+	width: 100%;
+}
+.cusel .jScrollPaneContainer {
+	position: relative;
+	overflow: hidden;
+	z-index: 500;
+	border: solid #bababa;
+	border-width:0 1px 1px; 
+}
+.time-box .cusel .jScrollPaneContainer {border:0;}
+.cusel .jScrollPaneTrack { 
+	height: 100%;
+	width: 7px !important;
+	background: #ccc;
+	position: absolute;
+	top: 0;
+	right: 4px;
+}
+.cusel .jScrollPaneDrag { 
+	position: absolute;
+	background-position: -40px -26px;
+	cursor: pointer;
+	width: 11px !important;
+	height: 25px !important;
+	right: -3px;
+	background:#fff;
+	border:1px solid #cacaca;
+}
+.cusel .jScrollPaneDragTop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.cusel .jScrollPaneDragBottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+.cusel .jScrollArrowUp { 
+	position: absolute;
+	top: 0;
+	right: 2px;
+	width: 26px;
+	height: 12px;
+	cursor: pointer;
+	background-position: -2px -26px;
+	overflow: hidden;
+}
+.cusel .jScrollArrowDown { 
+	width: 25px;
+	height: 12px;
+	position: absolute;
+	top: auto;
+	bottom: 0;
+	right: 3px;
+	cursor: pointer;
+	background-position: -21px -26px;
+	overflow: hidden;
+}

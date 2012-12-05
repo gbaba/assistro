@@ -1,0 +1,61 @@
+<h:form id="addUserForm" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:panelGrid id="addUserPopUp" rendered="true">
+		<p:dialog widgetVar="addUserDlg" resizable="false" showHeader="false"
+			width="488">
+
+			<div id="top-header-popup">
+				<h1>Add User!</h1>
+				<p>Assistro Promotions.</p>
+				<p:commandLink onclick="addUserDlg.hide()">
+					<div title="Close" class="fancybox-item fancybox-close"></div>
+				</p:commandLink>
+			</div>
+
+			<div class="clear"></div>
+			<div id="shadow">
+				<img src="/pages/images/smallshadow.png" />
+			</div>
+			<div class="claer"></div>
+			<div id="popup-content">
+				<h2>Sign up using valid email id..</h2>
+				<img src="/pages/images/popupshadow.jpg" />
+				<p:growl id="growl" showDetail="true" life="3000" />
+
+				<h:inputText id="userEmail" value="#{userBean.user.email}"
+					title="Enter UserName" rendered="true"
+					validator="#{userBean.emailValidator}" required="true"
+					styleClass="email-input">
+					<p:ajax event="blur" update="msg" />
+				</h:inputText>
+				<div>
+					<p:message id="msg" for="userEmail" />
+				</div>
+
+				<h:inputSecret id="password" value="#{userBean.user.password}"
+					binding="#{passwordComponent}" rendered="true" required="true"
+					styleClass="pass-input" title="Choose a Password">
+					<p:ajax event="blur" update="msg1" />
+					<f:validateLength minimum="6" maximum="15" />
+				</h:inputSecret>
+				<p:message id="msg1" for="password" />
+
+				<h:inputSecret id="confirmpassword" title="Confirm Password"
+					validator="#{userBean.passwordValidator}" feedback="false"
+					styleClass="pass-input">
+					<f:attribute name="passwordComponent" value="#{passwordComponent}" />
+				</h:inputSecret>
+
+				<div class="claer"></div>
+				<br />
+				<p:commandLink action="#{userBean.addUser}" id="sUp" value="Add User"
+					oncomplete="addUserDlg.hide()" styleClass="sign-up-popup"
+					ajax="false" update=":growl" />
+			</div>
+		</p:dialog>
+	</h:panelGrid>
+</h:form>
+

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Operator</title>
+	</ui:define>
+	<ui:define name="head">
+
+		<!-- Custom scrollbars CSS -->
+		<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet"
+			type="text/css" />
+		<!-- mousewheel plugin -->
+		<script src="js/jquery.mousewheel.min.js"></script>
+		<!-- custom scrollbars plugin -->
+		<script src="js/jquery.mCustomScrollbar.js"></script>
+		<script>
+			(function($) {
+				$(window).load(function() {
+					$("#content_1").mCustomScrollbar({
+						scrollButtons : {
+							enable : true
+						}
+					});
+				});
+			})(jQuery);
+		</script>
+		<link href="css/select-box.css" type="text/css" rel="stylesheet" />
+
+		<style>
+.my_dtheader th,.my_dtheader tr {
+	background: none !important;
+	padding: 0px !important;
+	border: none !important;
+}
+
+.ui-datatable tfoot td {
+	padding: 0px !important;
+	border: none !important;
+}
+
+.ui-datatable .ui-datatable-data td,.ui-datatable .ui-datatable-data-empty td
+	{
+	border-style: none !important;
+}
+
+.ui-growl {
+	
+}
+</style>
+	</ui:define>
+	<ui:define name="content">
+		<section id="ui-help-area">
+			<nav>
+				<ul>
+					<li><a href="#">Overview </a></li>
+				</ul>
+			</nav>
+			<a href="/pages/contact.html" title="Need help? Contact us!" class="help-btn">Need
+				help? Contact us!</a>
+		</section>
+		<!-- // help area -->
+		<section id="ui-content">
+			<section id="operators">
+				<header>
+					<h1>Add An Operator</h1>
+				</header>
+				<p class="operator-text">
+					Adding an operator is straightforward . Sign up for a GTalk address
+					if you don’t have one . After you are done, enter the address
+					below . You will receive a notification for adding <a href="#">visitor@assistrolivechat.appspotchat.com</a>
+					. Please accept them as friends to enable chatting with your site
+					visitors
+				</p>
+
+				<div id="gtalk-box">
+					<p>
+						You will need a valid Google Talk ID for each operator. If you
+						don’t already have Google Talk you can register for a free account
+						<a href="http://www.google.com/talk" onclick="return ! window.open(this.href);">here</a>
+					</p>
+				</div>
+				<!-- // gtrlak box -->
+				<h:form>
+					<p:commandLink id="addAg" styleClass="add-operator-btn"
+						onclick="agentDlg.show()" action="#{userBean.clearagentPopUp}" />
+				</h:form>
+				<span class="notify-2">Your current package allows maximum <h:outputText
+						value=" #{userBean.loggedInUser.maxAgent}" /> operators.
+				</span> <a href="#" class="upgrade-btn-2" title="Upgrade">Upgrade</a>
+				<div class="clear"></div>
+
+				<header class="table-list">
+					<h3>CURRENT OPERATORS</h3>
+				</header>
+				<h:form id="agentUp">
+					<p:growl id="adMes" showDetail="true" autoupdate="true" />
+					<p:dataTable id="agentTable" value="#{userBean.userOperator}"
+						styleClass="my_dtheader" var="agent">
+						<p:column>
+							<p:outputPanel rendered="#{agent.agent1!=null?'true':'false'}">
+								<article class="operator-info">
+									<p:commandLink actionListener="#{userBean.chkEntry}">
+										<f:param name="entryToCheckIndex" value="#{agent.agent1}" />
+										<p:graphicImage value="#{agent.agent1.agentImageURL}"
+											styleClass="avatar" onclick="uploadDlg.show()"
+											rendered="#{agent.agent1.agentImageURL!=null?'true':'false'}" />
+										<p:graphicImage value="images/avatar.jpg"
+											styleClass="avatar" onclick="uploadDlg.show()"
+											rendered="#{agent.agent1.agentImageURL!=null?'false':'true'}" />
+									</p:commandLink>
+									<div class="operator-info-data">
+										<header>
+											<hgroup>
+												<h3>
+													<h:outputText id="agent1Name"
+														value="#{agent.agent1.agentName}" />
+												</h3>											
+												<h:panelGroup rendered="#{agent.agent1.agentStatus?'false':'true'}">
+													<h4 class="status-offline">
+													<h:outputText 
+														value="#{agent.agent1.agentStatus==true?'Online':'Offline'}" />
+													</h4>
+												</h:panelGroup>
+												<h:panelGroup rendered="#{agent.agent1.agentStatus?'true':'false'}">
+													<h4 class="status-online">
+													<h:outputText
+														value="#{agent.agent1.agentStatus==true?'Online':'Offline'}" />
+													</h4>
+											    </h:panelGroup>
+											</hgroup>
+											<div class="clear"></div>
+											<div class="liner"></div>
+											<img src="images/icons/small-mascot.jpg" /> <span
+												class="number"><h:outputText id="agent1priority"
+													value="#{agent.agent1.agentpriority}" /></span> <img
+												src="images/icons/email.jpg" /> <a href="#" class="email"><h:outputText
+													id="agent1Email" value="#{agent.agent1.agentId}" /></a>
+											<div class="clear"></div>
+											<div class="liner"></div>
+											<img src="images/icons/edit.jpg" />
+											<p:commandLink value="Edit" id="agent1Edit"
+												styleClass="actions" actionListener="#{userBean.editEntry}"
+												update=":updateAgentForm:uagname,:updateAgentForm:uagemail,:updateAgentForm:uagPri"
+												onclick="updateAgentDlg.show()">
+												<f:param name="entryToRemoveIndex" value="#{agent.agent1}" />
+											</p:commandLink>
+											<img src="images/icons/delete.jpg" />
+											<p:commandLink value="Delete" id="agent1Delete"
+												styleClass="actions"
+												actionListener="#{userBean.removeEntry}" ajax="false"
+												update=":agentUp:agentTable">
+												<f:param name="entryToRemoveIndex" value="#{agent.agent1}" />
+											</p:commandLink>
+										</header>
+									</div>
+								</article>
+							</p:outputPanel>
+							<!--  operators info -->
+							<p:outputPanel rendered="#{agent.agent2!=null?'true':'false'}">
+								<article class="operator-info float-right">								
+									<p:commandLink actionListener="#{userBean.chkEntry}">
+										<f:param name="entryToCheckIndex" value="#{agent.agent2}" />
+										<p:graphicImage value="#{agent.agent2.agentImageURL}"
+											styleClass="avatar" onclick="uploadDlg.show()"
+											rendered="#{agent.agent2.agentImageURL!=null?'true':'false'}" />
+										<p:graphicImage value="images/avatar.jpg"
+											styleClass="avatar" onclick="uploadDlg.show()"
+											rendered="#{agent.agent2.agentImageURL!=null?'false':'true'}" />
+									</p:commandLink>
+									<div class="operator-info-data">
+										<header>
+											<hgroup>
+												<h3>
+													<h:outputText id="agent2Name"
+														value="#{agent.agent2.agentName}" />
+												</h3>
+												<h:panelGroup rendered="#{agent.agent2.agentStatus?'false':'true'}">
+													<h4 class="status-offline">
+													<h:outputText
+														value="#{agent.agent2.agentStatus==true?'Online':'Offline'}" />
+													</h4>
+												</h:panelGroup>
+												<h:panelGroup rendered="#{agent.agent2.agentStatus?'true':'false'}">
+													<h4 class="status-online">
+													<h:outputText
+														value="#{agent.agent2.agentStatus==true?'Online':'Offline'}" />
+													</h4>
+											    </h:panelGroup>
+											</hgroup>
+											<div class="clear"></div>
+											<div class="liner"></div>
+											<img src="images/icons/small-mascot.jpg" /> <span
+												class="number"><h:outputText id="agent2priority"
+													value="#{agent.agent2.agentpriority}" /></span> <img
+												src="images/icons/email.jpg" /> <a href="#" class="email"><h:outputText
+													id="agent2Email" value="#{agent.agent2.agentId}" /></a>
+											<div class="clear"></div>
+											<div class="liner"></div>
+											<img src="images/icons/edit.jpg" />
+											<p:commandLink value="Edit" id="agent2Edit" styleClass="EDIT"
+												actionListener="#{userBean.editEntry}"
+												update=":updateAgentForm:uagname,:updateAgentForm:uagemail,:updateAgentForm:uagPri"
+												onclick="updateAgentDlg.show()">
+												<f:param name="entryToRemoveIndex" value="#{agent.agent2}" />
+											</p:commandLink>
+											<img src="images/icons/delete.jpg" />
+											<p:commandLink value="Delete" id="agent2Delete"
+												styleClass="actions"
+												actionListener="#{userBean.removeEntry}" ajax="false"
+												update=":agentUp:agentTable">
+												<f:param name="entryToRemoveIndex" value="#{agent.agent2}" />
+											</p:commandLink>
+										</header>
+									</div>
+								</article>
+							</p:outputPanel>
+							<!--  operators info -->
+							<div class="clear"></div>
+							<!--  operators info -->
+						</p:column>
+					</p:dataTable>
+				</h:form>
+				<div class="clear"></div>
+			</section>
+			<!-- // operators -->
+		</section>
+
+		<ui:include src="/templates/agent.xhtml"></ui:include>
+		<ui:include src="/templates/updateagent.xhtml"></ui:include>
+		<ui:include src="/templates/uploadImage.xhtml" />
+	</ui:define>
+</ui:composition>
+</html>

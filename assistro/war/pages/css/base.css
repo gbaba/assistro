@@ -1,0 +1,188 @@
+/*
+Project Name: Assistro
+CSS Name: base.css
+Version: 0.1
+Date: Aug 2012
+Quote of the Day: And no, we don't know where it will lead. We just know there's something much bigger than any of us here. - Steve Jobs 
+*/
+
+
+/*
+---------------------------------------------
+01. Import CSS files
+---------------------------------------------
+*/
+
+@import "header.css";
+@import "content.css";
+@import "footer.css";
+@import "ie.css";
+
+
+/*
+---------------------------------------------
+02. Import custom Fonts
+---------------------------------------------
+*/
+
+@font-face {
+    font-family: 'PTSansNarrowRegular';
+    src: url('../fonts/ptn57f-webfont.eot');
+    src: url('../fonts/ptn57f-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ptn57f-webfont.woff') format('woff'),
+         url('../fonts/ptn57f-webfont.ttf') format('truetype'),
+         url('../fonts/ptn57f-webfont.svg#PTSansNarrowRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'NeogreyRegular';
+    src: url('../fonts/NeogreyRegular.otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansNarrowBold';
+    src: url('../fonts/ptn77f-webfont.eot');
+    src: url('../fonts/ptn77f-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ptn77f-webfont.woff') format('woff'),
+         url('../fonts/ptn77f-webfont.ttf') format('truetype'),
+         url('../fonts/ptn77f-webfont.svg#PTSansNarrowBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansRegular';
+    src: url('../fonts/pts55f-webfont.eot');
+    src: url('../fonts/pts55f-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pts55f-webfont.woff') format('woff'),
+         url('../fonts/pts55f-webfont.ttf') format('truetype'),
+         url('../fonts/pts55f-webfont.svg#PTSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'PTSansBold';
+    src: url('../fonts/pts75f-webfont.eot');
+    src: url('../fonts/pts75f-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pts75f-webfont.woff') format('woff'),
+         url('../fonts/pts75f-webfont.ttf') format('truetype'),
+         url('../fonts/pts75f-webfont.svg#PTSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MyriadProBoldCondensed';
+    src: url('../fonts/myriadpro-boldcond-webfont.eot');
+    src: url('../fonts/myriadpro-boldcond-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/myriadpro-boldcond-webfont.woff') format('woff'),
+         url('../fonts/myriadpro-boldcond-webfont.ttf') format('truetype'),
+         url('../fonts/myriadpro-boldcond-webfont.svg#') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*
+---------------------------------------------
+03. Reset browser default styles
+---------------------------------------------
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	text-decoration:none;
+}
+
+/*
+---------------------------------------------
+04. Global Classes
+---------------------------------------------
+*/
+
+.clear         { clear:both; }
+.float-left    { float:left; }
+.float-right   { float:right; }
+
+.text-left     { text-align:left; }
+.text-center   { text-align:center; }
+.text-justify  { text-align:justify; }
+
+.bold          { font-weight:bold; }
+.italic        { font-style:italic; }
+.underline     { border-bottom:1px solid; }
+.highlight     { background:#ffc; }
+
+.img-left      { float:left;margin:4px 10px 4px 0; }
+.img-right     { float:right;margin:4px 0 4px 10px; }
+
+.nopadding     { padding:0; }
+.noindent      { margin-left:0;padding-left:0; }
+.nobullet      { list-style:none;list-style-image:none; }
+.noborder 	   { border:none!important; }
+
+
+/*
+---------------------------------------------
+05. Body styling
+---------------------------------------------
+*/
+
+#homepage {
+	background:url(../images/homepage-bg.png);
+	background-repeat:repeat-x;
+	background-color:#0b2e65;
+	background-position:left 62px;
+}

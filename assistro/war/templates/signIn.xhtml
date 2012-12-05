@@ -1,0 +1,57 @@
+<h:form id="signInForm" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:panelGrid id="userPopUp" rendered="true">
+		<p:dialog widgetVar="signInDlg" resizable="false" showHeader="false"
+			width="488" modal="true">
+			<div id="top-header-popup">
+				<h1>Sign In</h1>
+				<p>Don’t have an account? Sign Up. It’s easy and free!</p>
+				<p:commandLink onclick="signInDlg.hide()"><div title="Close" class="fancybox-item fancybox-close"></div></p:commandLink>
+			</div>
+
+
+			<div class="clear"></div>
+			<div id="shadow">
+				<img src="/pages/images/smallshadow.png" />
+			</div>
+			<div class="claer"></div>
+			<div id="popup-content">
+				<h2>Sign in using your registered account</h2>
+				<img src="/pages/images/popupshadow.jpg" /> 
+				<p:growl id="growl" showDetail="true" life="3000" />
+				
+				<h:inputText id="userID" value="#{userBean.user.email}"
+					title="Enter UserName" rendered="true"
+					required="true" styleClass="email-input"
+				/>
+				<p:message for="userID" />
+				
+				<h:inputSecret id="userpass" value="#{userBean.user.password}"
+					title="Enter UserName" rendered="true"
+					required="true" styleClass="pass-input"
+				/>
+					
+				<div class="claer"></div>
+				<br /> 
+				
+				<h:selectBooleanCheckbox id="ch3" styleClass="checkmark"
+											value="#{userBean.rememberUser}"
+											/><span
+					class="check">Remember me on this computer.</span>
+											
+				<p:commandLink value="Forgot Your Password?" styleClass="forgot"
+											onclick="signInDlg.hide()" oncomplete="passwordDlg.show()" action="#{userBean.clearPasswordField}"
+											/>
+					
+					<p:commandLink action="#{userBean.login}"
+									oncomplete="signInDlg.hide()" styleClass="sign-in-popup"
+									ajax="false" update=":growl" />
+			</div>
+		</p:dialog>
+	</h:panelGrid>
+</h:form>
+
+

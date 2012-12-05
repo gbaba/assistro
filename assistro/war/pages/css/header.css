@@ -1,0 +1,301 @@
+/*
+Project Name: Assistro
+CSS Name: header.css
+Version: 0.1
+Date: Aug 2012
+Quote of the Day: And no, we don't know where it will lead. We just know there's something much bigger than any of us here. - Steve Jobs 
+*/
+
+
+/*
+---------------------------------------------
+01. Homepage Header , site header
+---------------------------------------------
+*/
+
+section#top-bar-wrapper {
+	width:100%;
+	height:62px;
+	background:url(../images/top-wrapper-bg.png);
+	background-repeat:repeat-x;
+}
+
+div#top-bar {
+	width:960px;
+	height:62px;
+	margin:0px auto 0 auto;
+}
+
+div#branding {
+	float:left;
+	width:305px;
+	height:62px;
+}
+
+nav#main-menu {
+	float:left;
+	width:530px;
+	height:62px;
+	margin-left:10px;
+}
+
+nav#main-menu li a{
+	display:block;
+	float:left;
+	font-size:12px;
+	text-transform:uppercase;
+	color:#fff;
+	text-shadow:1px 1px 1px #242425;
+	/* font-family: 'PTSansNarrowRegular'; */
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding-left:15px;
+	padding-right:15px;
+	margin-top:26px;
+}
+
+a.home-link {
+	padding-left:5px!important;
+}
+
+nav#main-menu li a:hover {
+	color:#aada1a;
+}
+
+nav#main-menu li {
+	display:block;
+	float:left;
+}
+
+a.sign-in-btn {
+	display:block;
+	float:right;
+	width:110px;
+	height:27px;
+	background:url(../images/sign-in-btn.png);
+	text-indent:-9999px;
+	margin-top:18px;
+}
+
+a.sign-in-btn:hover {
+	cursor:pointer;
+	background-position:0px -27px;
+}
+
+section#homepage-header {
+	width:960px;
+	height:544px;
+	background:url(../images/homepage-header-bg.png);
+	/* background:transparent; */
+	margin:0px auto 0 auto;
+}
+
+section#homepage-header h1 {
+	font-size:48px;
+	color:#fff;
+	font-family: 'PTSansBold';
+	text-align:center;
+	text-shadow:1px 1px 1px #123264
+}
+
+section#homepage-header h2 {
+	text-align:center;
+	font-size:20px;
+	color:#fff;
+	font-family: 'PTSansBold';
+	text-shadow:1px 1px 1px #123264;
+	margin-top:8px;
+}
+
+section#homepage-header hgroup {
+	padding-top:45px;
+}
+
+section#header-featured {
+	float:left;
+	width:410px;
+	margin-top:70px;
+}
+
+section#header-featured img {
+	float:left;
+	margin-right:15px;
+}
+
+section#header-featured h4 {
+	color:#fff;
+	font-size:30px;
+	font-family: 'PTSansNarrowBold';
+	text-shadow:1px 1px 1px #000000
+}
+
+section#header-featured p {
+	font-size:14px;
+	color:#fff;
+	text-shadow:1px 1px 1px #214882;
+	font-family: 'PTSansRegular';
+}
+
+section#header-featured article {
+	margin-bottom:30px;
+}
+
+a.get-started-now-btn {
+	display:block;
+	width:284px;
+	height:68px;
+	text-indent:-9999px;
+	background:url(../images/get-started-now-btn.png);
+	position:relative;
+	top:15px;
+	margin-left:55px;
+}
+
+a.get-started-now-btn:hover {
+	background-position:0px -68px;
+}
+
+img.arrow {
+	display:block;
+	margin-top:-15px;
+	margin-left:-5px;
+}
+
+section#chat-area {
+	float:left;
+	width:320px;
+	height:391px;
+	margin-top:32px;
+}
+
+.mascot {
+	position:relative;
+	top:168px;
+	left:-20px;
+}
+
+/*
+---------------------------------------------
+02. Inner Page Header
+---------------------------------------------
+*/
+
+section#inner-page-header {
+	display:block;
+	margin:0px auto 0 auto;
+	width:960px;
+	height:165px;
+	background:url(../images/inner-page-header-bg.jpg);
+	position:relative;
+}
+
+section#help-area {
+	width:959px;
+	margin:0px auto 0 auto;
+	height:85px;
+	background:url(../images/help-area-bg.png);
+}
+
+.mascot2 {
+	position:absolute;
+	top:0px;
+	float:left;
+}
+
+section#inner-page-header h1 {
+	padding-top:55px;
+	margin-left:200px;
+	color:#fff;
+	text-shadow:1px 1px 1px #133669;
+	font-size:48px;
+	font-family: 'PTSansBold';
+}
+
+section#inner-page-header h2 {
+	margin-left:200px;
+	color:#fff;
+	font-size:20px;
+	text-shadow:1px 1px 1px #133669;
+	font-family: 'PTSansBold';
+}
+
+section#inner-page-header hgroup {
+	display:inline-block;
+}
+
+.get-started-now-btn-small {
+	display:inline-block;
+	width:175px;
+	height:43px;
+	background:url(../images/get-started-btn-small.png);
+	text-indent:-9999px;
+	margin-right:30px;
+	float:right;
+	margin-top:62px;
+}
+
+.get-started-now-btn-small:hover {
+	background-position:0px -43px;
+}
+
+section#help-area a {
+	display:block;
+	float:right;
+	color:#333536;
+	font-size:14px;
+	font-family: 'PTSansRegular';
+	margin-right:40px;
+	background:url(../images/icons/hekp-btn.png);
+	background-repeat:no-repeat;
+	padding-left:25px;
+	padding-top:2px;
+	padding-bottom:10px;
+	margin-top:35px;
+}
+
+section#help-area a:hover {
+	text-decoration:underline;
+}
+
+section#admin-bar-wrapper {
+	width:100%;
+	height:48px;
+	background:url(../images/admin-bar-top.jpg);
+}
+
+div#admin-bar {
+	width:960px;
+	height:48px;
+	margin:0px auto 0 auto;
+}
+
+div#admin-bar p {
+	float:left;
+	display:block;
+	line-height:18px;
+	color:#fff;
+	text-shadow:1px 1px 1px #333334;
+	color:#fff;
+	font-family: 'PTSansRegular';
+	width:110px;
+	margin-top: 10px;
+}
+
+div#admin-bar li a {
+	display:block;
+	float:left;
+	color:#fff;
+	font-size:16px;
+	font-family: 'PTSansNarrowRegular';
+	text-transform:uppercase;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:6px;
+	padding-bottom:6px;
+	margin-top:10px;
+}
+
+div#admin-bar li a:hover {
+	background:url(../images/black-trans.png);
+	border-radius:6px;
+	-moz-border-radius:6px;
+}

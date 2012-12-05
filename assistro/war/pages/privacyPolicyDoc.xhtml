@@ -1,0 +1,23 @@
+<!DOCTYPE html 
+
+         PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/MainLayout.xhtml">
+<ui:define name="title"><title>Assistro | Privacy Policy</title></ui:define>
+	<ui:define name="content">
+		<div style=" width:90%;margin-left:3%; margin-right:7%;">
+		<iframe src="/docx/privacyPolicy.html" align="middle" height="400px" width="910px"/>
+		</div>
+	<ui:include src="/templates/signup.xhtml"></ui:include>
+	<ui:include src="/templates/signIn.xhtml"></ui:include>
+	<ui:include src="/templates/forgetPassword.xhtml" />
+</ui:define>
+</ui:composition>
+</html>

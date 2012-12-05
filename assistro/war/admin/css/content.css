@@ -1,0 +1,946 @@
+/*
+Project Name: Assistro
+CSS Name: ie.css
+Version: 0.1
+Date: Aug 2012
+Quote of the Day: And no, we don't know where it will lead. We just know there's something much bigger than any of us here. - Steve Jobs 
+*/
+
+
+
+/*
+---------------------------------------------
+01. Homepage styling content
+---------------------------------------------
+*/
+
+section#ui-help-area {
+	width:959px;
+	height:81px;
+	margin:0px auto 0 auto;
+	background:url(../images/ui-help-area-bg.png)
+}
+
+section#ui-content {
+	width:959px;
+	margin:0px auto 0 auto;
+	background:url(../images/ui-content-bg.png);
+	background-repeat:no-repeat;
+	background-position:center top;
+	background-color:#fff;
+}
+
+div#ui-content-bottom {
+	width:959px;
+	height:12px;
+	background:url(../images/ui-contnet-bottom.png);
+	margin:0px auto 0 auto;
+}
+
+section#ui-help-area nav {
+	float:left;
+	width:700px;
+	margin-top:35px;
+	margin-left:40px;
+}
+
+section#ui-help-area nav li a {
+	display:block;
+	float:left;
+	color:#565a5c;
+	font-size:14px;
+	font-family: 'PTSansRegular';
+	background:url(../images/link-arrow.png);
+	padding-left:18px;
+	background-repeat:no-repeat;
+	background-position:left top;
+	margin-right:30px;
+}
+
+section#ui-help-area nav li a:hover {
+	text-decoration:underline;
+	color:#194b97;
+}
+
+.help-btn {
+	display:block;
+	float:right;
+	color:#333536;
+	font-size:14px;
+	font-family: 'PTSansRegular';
+	margin-right:40px;
+	background:url(../images/hekp-btn.png);
+	background-repeat:no-repeat;
+	padding-left:25px;
+	padding-top:2px;
+	padding-bottom:10px;
+	margin-top:35px;
+}
+
+.help-btn:hover {
+	text-decoration:underline;
+}
+
+section#customize-left {
+	float:left;
+	width:470px;
+	margin-left:30px;
+	margin-top:30px;
+}
+
+section#customize-left h1 {
+	color:#134289;
+	font-size:18px;
+	font-family: 'PTSansRegular';
+	font-weight:normal;
+}
+
+section#customize-left .notify {
+	font-size:12px;
+	color:#232628;
+	margin-top:5px;
+	font-family: 'PTSansRegular';
+}
+
+ section#account_info {
+	/* float:left; */
+	width:470px;
+	margin-left:30px;
+	margin-top:0px;
+} 
+
+section#account_info h1 {
+	color:#134289;
+	font-size:18px;
+	font-family: 'PTSansRegular';
+	font-weight:normal;
+}
+
+section#account_info .notify {
+	font-size:12px;
+	color:#232628;
+	margin-top:5px;
+	font-family: 'PTSansRegular';
+}
+
+
+aside#customize-sidebar {
+	width:395px;
+	float:right;
+	margin-right:30px;
+	margin-top:30px;
+}
+
+section#design-selector {
+	width:100%;
+	height:78px;
+	background:url(../images/design-selectr-bg.png);
+}
+
+section#design-selector h3 {
+	display:inline-block;
+	color:#373636;
+	font-size:16px;
+	font-family: 'PTSansNarrowRegular';
+	text-transform:uppercase;
+	margin-left:40px;
+	margin-top:34px;
+	margin-right:15px;
+}
+
+section#design-preview {
+	width:393px;
+	text-align:center;
+	background:url(../images/design-preview.jpg);
+	background-repeat:repeat-x;
+	background-position:left top;
+	background-color:#ebf3f9;
+	border-left:1px solid #e8f3fa;
+	border-right:1px solid #e8f3fa;
+	margin-left: -13px;
+	margin-top: -8px;
+}
+
+section#design-preview h4 {
+	color:#000000;
+	font-family: 'PTSansNarrowRegular';
+	font-weight:normal;
+	padding-top:20px;
+	font-size:18px;
+}
+
+section#design-preview h4 img {
+	position:relative;
+	top:20px;
+	left:5px;
+}
+
+.chat {
+	margin-top:30px;
+}
+
+div#design-preview-bottom {
+	width:395px;
+	height:9px;
+	background:url(../images/design-preview-bottom.png);
+	margin-top: -8px;
+margin-left: 1px;
+}
+
+section#reports {
+	margin-left:30px;
+	margin-right:30px;
+	width:900px;
+}
+
+section#reports h1 {
+	font-size:18px;
+	color:#232628;
+	font-family: 'PTSansRegular';
+	font-weight:normal;
+	padding-top:30px;
+	margin-bottom:30px;
+}
+
+section#history {
+	margin-left:30px;
+	margin-right:30px;
+	width:900px;
+	padding-top:22px;
+	margin-bottom:25px;
+	float:left;
+}
+
+a.export-btn {
+	display:block;
+	width:161px;
+	height:45px;
+	background:url(../images/export-btn.png);
+	text-indent:-9999px;
+}
+
+a.export-btn:hover {
+	background-position:0px -45px;
+}
+
+.historytable {
+	margin-top:30px;
+	background:url(../images/tableheader.png);
+	background-repeat:no-repeat
+}
+
+.tableHeading {
+	height:36px;
+	line-height:40px;
+	font-size:14px;
+	color:#fff;
+	font-family: 'PTSansRegular';
+	text-shadow:1px 1px 1px #6f7579
+}
+
+.historytable td {
+	padding:10px;
+	color:#464646;
+	font-family: 'PTSansRegular';
+	font-size:12px;
+	text-align:center;
+	border:1px solid #ececec;
+}
+
+.historytable td a {
+	color:#464646;
+}
+
+section#ui-introduction {
+	width:959px;
+	height:92px;
+	background:url(../images/intro-bg.png);
+	margin:0px auto 0 auto;
+}
+
+section#ui-introduction hgroup {
+	float:left;
+	margin-left:30px;
+	width:500px;
+}
+
+section#ui-introduction hgroup h1 {
+	color:#232628;
+	font-size:30px;
+	font-family: 'PTSansRegular';
+	margin-top:25px;
+	font-weight:normal;
+}
+
+section#ui-introduction hgroup h2 {
+	font-size:12px;
+	color:#232628;
+	font-family: 'PTSansRegular';
+	font-weight:normal;
+	margin-top:5px;
+}
+
+section#ui-introduction  h3 {
+	float:right;
+	font-size:30px;
+	font-family: 'PTSansRegular';
+	font-weight:normal;
+	margin-right:35px;
+	color:#212121;
+	margin-top:35px;
+}
+
+section#ui-introduction  h3 span {
+	color:#b9dd49;
+}
+
+section#dashboard-left {
+	float:left;
+	width:420px;
+	margin-left:30px;
+	padding-bottom:50px;
+}
+
+section#dashboard-left h1 {
+	color:#212121;
+	font-size:18px;
+	font-family: 'PTSansRegular';
+	font-weight:normal;
+	margin-top:30px;
+}
+section#dashboard-left h1 span {
+	color:#265db0;
+}
+
+div#update-box {
+	width:420px;
+	height:60px;
+	background:url(../images/update-box-bg.jpg);
+	margin-top:25px;
+	margin-bottom:15px;
+}
+
+div#update-box h3 {
+	color:#000000;
+	font-size:18px;
+	font-family: 'PTSansBold';
+	line-height:64px;
+	margin-left:20px;
+	display:inline-block;
+	margin-right:15px;
+}
+
+.update-btn {
+	display:inline-block;
+	text-indent:-9999px;
+	width:82px;
+	height:29px;
+	background:url(../images/update-btn.png);
+	margin-left:330px;
+	position:relative;
+	top:-45px;
+}
+
+.update-btn:hover {
+	background-position:0px -29px;
+}
+
+div#update-box select {
+	display:inline-block;
+	width:150px;
+}
+
+.dashboard-actions {
+	font-size:13px;
+	color:#454545;
+	font-family: 'PTSansRegular';
+	display:block;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom:1px dashed #a8a8a8;
+}
+
+.dashboard-actions_promo {
+	font-size:13px;
+	color:#454545;
+	font-family: 'PTSansRegular';
+	display:block;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.dashboard-actions  a {
+	color:#2459ab;
+	text-decoration:underline;
+}
+
+.dashboard-actions  a:hover {
+	text-decoration:none;
+}
+
+.dashboard-actions img {
+	margin-right:10px;
+	position:relative;
+	top:2px;
+}
+
+section#dashboard-right {
+	float:right;
+	width:450px;
+	height:237px;
+	background:url(../images/dashboard-right-bg.jpg);
+	margin-top:30px;
+	margin-right:30px;
+	text-align:center;
+}
+
+section#dashboard-right p {
+	font-size:13px;
+	color:#2257a8;
+	font-family: 'PTSansRegular';
+	margin-bottom:25px;
+}
+
+.share-icons img {
+	margin:5px;
+}
+
+.share-icons img:hover {
+	opacity: .7;
+	filter: alpha(opacity=70);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+}
+
+section#ui-install-header h4 {
+	color:#232628;
+	font-size:18px;
+	font-family: 'PTSansRegular';
+	font-weight:normal;
+	display:block;
+	float:left;
+	width:600px;
+	margin-top:30px;
+}
+
+section#ui-install-header {
+	width:959px;
+	height:69px;
+	background:url(../images/install-bg.jpg);
+	margin:0px auto 0 auto;
+}
+
+section#ui-install-header hgroup {
+	margin-left:30px;
+}
+
+.video-tour-btn {
+	display:block;
+	float:right;
+	margin-right:30px;
+	color:#1a4c98;
+	font-size:14px;
+	font-family: 'PTSansRegular';
+	text-decoration:underline;
+	background:url(../images/play-btn.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:45px;
+	margin-top:15px;
+}
+
+.video-tour-btn:hover {
+	text-decoration:none;
+}
+
+section#install-steps {
+	width:900px;
+	margin-left:30px;
+	margin-right:30px;
+	padding-top:30px;
+	padding-bottom:50px;
+}
+
+section#install-steps header img {
+	float:left;
+	margin-right:20px;
+}
+
+section#install-steps header h3 {
+	color:#124086;
+	font-size:14px;
+	font-family: 'PTSansRegular';
+	padding-top:10px;
+	font-weight:normal;
+}
+
+section#install-steps header p {
+	color:#212121;
+	font-size:14px;
+	font-family: 'PTSansRegular';
+	margin-top:5px;
+}
+
+div#code-wrapper-top {
+	width:841px;
+	height:20px;
+	background:url(../images/code-wrapper-top-bg.jpg);
+	margin-top:20px;
+	margin-left:60px;
+}
+
+div#code-wrapper-bottom {
+	width:841px;
+	height:11px;
+	background:url(../images/code-wrapper-bottom.jpg);
+	margin-left:60px;
+}
+
+div#code-wrapper {
+	width:801px;
+	margin-left:60px;
+	border-left:1px solid #ececec;
+	border-right:1px solid #ececec;
+	padding-left:20px;
+	padding-right:20px;
+	font-size:13px;
+	color:#000000;
+	font-family: 'PTSansRegular';
+	height: 45px;
+	overflow-x: auto;
+}
+
+.additional-insutrctions-link {
+	font-size:11px;
+	color:#254d95;
+	font-family: 'PTSansRegular';
+	margin-left:80px;
+	margin-top:10px;
+	display:block;
+	text-decoration:underline;
+	margin-bottom:30px;
+}
+
+.additional-insutrctions-link:hover {
+	text-decoration:none;
+}
+
+section#operators {
+	width:900px;
+	margin-left:30px;
+	padding-top:30px;
+	padding-bottom:50px;
+}
+
+section#operators h1 {
+	font-size:18px;
+	color:#134289;
+	margin-bottom:15px;
+	font-family: 'PTSansBold';
+	
+}
+
+.operator-text {
+	color:#232628;
+	line-height:16px;
+	font-family: 'PTSansRegular';
+	font-size:12px;
+}
+
+.operator-text  a {
+	color:#15458e;
+}
+
+..operator-text  a:hover {
+	text-decoration:underline;
+}
+
+div#gtalk-box {
+	width:898px;
+	height:86px;
+	background:url(../images/gtalk-bg.jpg);
+	margin-bottom:30px;
+	margin-top:30px;
+}
+
+div#gtalk-box p {
+	font-size:14px;
+	font-family: 'PTSansBold';
+	color:#232628;
+	line-height:86px;
+	margin-left:75px;
+}
+
+div#gtalk-box p a {
+	color:#14438c;
+	text-decoration:underline;
+}
+
+div#gtalk-box p a:hover {
+	text-decoration:none;
+}
+
+.add-operator-btn {
+	display:block;
+	width:223px;
+	height:55px;
+	background:url(../images/add-operator-btn.png);
+	float:left;
+	margin-left:130px;
+	text-indent:-9999px;
+}
+
+.add-operator-btn:hover {
+	background-position:0px -55px;
+}
+
+.notify-2 {
+	color:#232628;
+	font-size:12px;
+	font-family: 'PTSansRegular';
+	display:block;
+	float:left;
+	margin-left:30px;
+	margin-top:25px;
+}
+
+.upgrade-btn-2 {
+	display:block;
+	float:left;
+	width:72px;
+	height:29px;
+	background:url(../images/upgrade-btn.png);
+	text-indent:-8888px;
+	margin-left:20px;
+	margin-top:15px;
+}
+
+.upgrade-btn-2:hover {
+	background-position:0px -29px;
+}
+
+.table-list h3 {
+	width:882px;
+	height:30px;
+	background:url(../images/table-list-bg.jpg);
+	margin-top:30px;
+	text-shadow:1px 1px 1px #70767a;
+	color:#fff;
+	padding-left:15px;
+	line-height:34px;
+	font-family: 'PTSansBold';
+	font-size:16px;
+}
+
+.operator-info {
+	display:block;
+	float:left;
+	border:1px solid #ececec;
+	width:400px;
+	padding:15px;
+	margin-top:11px;
+	margin-bottom:11px;
+	border-radius:6px;
+	-moz-border-radius:6px;
+}
+
+
+
+img.avatar {
+	float:left;
+	padding:3px;
+	border:1px solid #d9d9d9;
+	display:block;
+}
+
+div.operator-info-data {
+	float:left;
+	width:280px;
+	margin-left:20px;
+	margin-top:10px;
+}
+
+div.operator-info-data h3 {
+	color:#113f85;
+	font-size:16px;
+	font-family: 'PTSansBold';
+	display:inline-block;
+	float:left;
+}
+
+div.operator-info-data h4 {
+	display:inline-block;
+	float:right;
+	color:#b70909;
+	font-size:12px;
+	font-family: 'PTSansRegular';
+	font-weight:normal;
+	text-transform:uppercase;
+	margin-top:5px;
+}
+
+.liner {
+	width:10)%;
+	height:1px;
+	border-top:1px dotted #e1e1e1;
+	display:block;
+	margin-top:10px;
+	margin-bottom:10px;
+
+}
+
+.number {
+	display:inline-block;
+	color:#010101;
+	margin-left:5px;
+	margin-right:25px;
+	font-family: 'PTSansRegular';
+}
+
+div.operator-info-data .email {
+	display:inline-block;
+	color:#010101;
+	font-size:12px;
+	margin-left:10px;
+	font-family: 'PTSansRegular';
+}
+
+div.operator-info-data .actions {
+	display:inline-block;
+	color:#010101;
+	font-size:12px;
+	margin-left:10px;
+	font-family: 'PTSansRegular';
+	margin-right:13px;
+}
+
+.status-online {
+	color:#86b019!important;
+}
+
+div.operator-info-data a:hover {
+	text-decoration:underline;
+}
+
+section#customize-left h2 {
+	width:449px;
+	height:32px;
+	line-height:36px;
+	background:url(../images/customize-heading.jpg);
+	padding-left:20px;
+	font-size:16px;
+	color:#fff;
+	font-family: 'PTSansBold';
+	text-shadow:1px 1px 1px #71767b;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+section#customize-left label {
+	display:inline-block;
+	width:200px;
+	width:170px;
+	margin-left:10px;
+	color:3454545;
+	font-family: 'PTSansRegular';
+	font-size:13px;
+}
+
+section#customize-left input[type="text"] {
+	width:280px;
+	height:31px;
+	background:url(../images/input-bg.jpg);
+	border:none;
+	padding-left:5px;
+}
+
+section#account_info label {
+	display:inline-block;
+	width:200px;
+	width:170px;
+	margin-left:10px;
+	color:3454545;
+	font-family: 'PTSansRegular';
+	font-size:13px;
+}
+
+section#account_info input[type="text"] {
+	width:280px;
+	height:31px;
+	background:url(../images/input-bg.jpg);
+	border:none;
+	padding-left:5px;
+} 
+
+.submitCustom {
+	display:block;
+	margin-bottom:50px;
+	margin-left:185px;
+}
+
+/* chat app coding */
+div#chat-app-wrapper {
+	width:318px;
+	height:368px;
+	margin-top:40px;
+	margin-left:40px;
+	text-align:left!important;
+}
+
+div#chat-app-top-window {
+	width:285px;
+	height:30px;
+	background:url(../images/chat-app-top-window.jpg);
+	padding-left:33px;
+}
+
+div#chat-app-top-window h3 {
+	color:#fff;
+	font-size:14px;
+	font-family: 'PTSansRegular';
+	text-align:left;
+	line-height:33px;
+}
+
+div#chat-app-header {
+	width:318px;
+	height:66px;
+	background:url(../images/chat-app-header.jpg);
+}
+
+div#chat-app-avatar {
+	float:left;
+	width:80px;
+	height:66px;
+	background:url(../images/chat-app-avatar-bg.jpg);
+}
+
+div#chat-app-avatar img {
+	position:relative;
+	top:11px;
+	left:18px;
+}
+
+div#chat-app-header h4 {
+	color:#fff;
+	font-size:14px;
+	font-family: 'PTSansRegular';
+}
+
+div#chat-app-header h5 {
+	color:#8ebb19;
+	font-size:12px;
+	font-family: 'PTSansRegular';
+	margin-top:5px;
+}
+
+div#chat-app-content {
+	width:318px;
+	height:183px;
+	background:url(../images/chat-app-content-bg.jpg);
+}
+
+div#chat-app-footer {
+	width:318px;
+	height:69px;
+	background:url(../images/chat-app-footer-bg.jpg);
+}
+
+div#chat-app-copy {
+	width:318px;
+	height:20px;
+	background:url(../images/chat-app-copy-bg.jpg);
+	text-align:center;
+	line-height:20px;
+}
+
+div#live-chat-btn {
+	display:block;
+	width:317px;
+	height:30px;
+	background:url(../images/livechat-btn.png);
+	text-indent:-9999px;
+	margin-top:15px;
+	margin-left:38px;
+}
+
+div#chat-app-copy p {
+	font-size:11px;
+	color:#fff;
+	font-family: 'PTSansRegular';
+}
+
+div#chat-app-copy p a {
+	color:#91bf19;
+	text-decoration:underline;
+}
+
+div#chat-app-copy p a:hover {
+	text-decoration:none;
+}
+
+div#chat-app-footer input[type="text"] {
+	width:229px;
+	height:33px;
+	background:url(../images/chatinput-bg.png);
+	border:none;
+	color:#fff;
+	font-size:12px;
+	padding-left:10px;
+	background-repeat:no-repeat;
+	margin-left:10px;
+	margin-top:18px;
+	display:block;
+	float:left;
+}
+
+.chat-send-btn {
+	display:block;
+	float:left;
+	width:51px;
+	height:44px;
+	background:url(../images/chat-send-btn.png);
+	text-indent:-9999px;
+	margin-top:15px;
+	margin-left:5px;
+}
+
+.chat-send-btn:hover {
+	background-position:0px -44px;
+}
+
+.content{ 
+width:298px; 
+height:173px; 
+overflow:auto;
+padding:10px;
+padding-top:0px;
+}
+
+.content p {
+	font-size:12px;
+	color:#3d3d3d;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:16px;
+	padding-bottom:10px;
+	border-bottom:1px dashed #cbcbcb;
+	width:280px;
+}
+
+.content h5 {
+	font-size:13px;
+	color:#698a12;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-bottom:6px;
+	margin-top:10px;
+}
+
+.content h6 {
+	padding-top:10px;
+	color:#3c7ed0;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-bottom:6px;
+}
+

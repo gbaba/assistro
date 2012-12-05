@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Dashboard</title>
+	</ui:define>
+	<ui:define name="head">
+
+		<style>
+.ui-growl {
+	top: 280px;
+	left: 440px;
+}
+</style>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<section id="ui-help-area">
+				<nav>
+					<ul>
+						<li><a href="#">Home</a>
+						</li>
+						<li><a href="/admin/myaccount.html">My Account</a>
+						</li>
+						<li><p:commandLink onclick="passwordDlg.show()"
+								action="#{userBean.clearPasswordField}" value="Reset Password" />
+						</li>
+					</ul>
+				</nav>
+				<a href="/pages/contact.html" title="Need help? Contact us!"
+					class="help-btn">Need help? Contact us!</a>
+			</section>
+			<!-- // help area -->
+
+			<section id="ui-introduction">
+				<header>
+					<hgroup>
+						<h1>
+							Hello
+							<h:outputText id="ch1" value="#{userBean.loggedInUser.fullName}" />
+						</h1>
+						<h2>
+							Your Last Login :
+							<h:outputText id="da" value="#{userBean.loggedInUser.timestamp}" />
+						</h2>
+						<h2>
+							<h:outputText
+								value="Your chat limit expire. Please Upgrade your package!!"
+								rendered="#{userBean.chatLimit}" style="color: #FF0000;" />
+						</h2>
+					</hgroup>
+					<h3>
+						<span>Active:</span>
+						<h:outputText value=" #{userBean.loggedInUser.businessPlan}"
+							rendered="#{userBean.loggedInUser.active==true?'true':'false'}" />
+						<h:outputText value="In-Active"
+							rendered="#{userBean.loggedInUser.active==false?'true':'false'}"
+							style="color: #FF0000;" />
+					</h3>
+				</header>
+			</section>
+			<!-- // intro part -->
+
+			<section id="ui-content">
+				<section id="dashboard-left">
+					<header>
+						<h1>
+							Current Account: <span><h:outputText
+									value=" #{userBean.loggedInUser.businessPlan}"
+									rendered="#{userBean.loggedInUser.active==true?'true':'false'}" />
+							</span>
+						</h1>
+					</header>
+					<h:inputHidden id="ih" value="#{userBean.planInfo}" />
+					<div id="update-box">
+						<h3>Upgrade assistro</h3>
+
+						<h:selectOneMenu id="language2"
+							value="#{userBean.loggedInUser.businessPlan}">
+							<f:selectItem itemLabel="Select Package"
+								itemValue="#{userBean.loggedInUser.businessPlan}" />
+							<f:selectItem itemLabel="Small Business" itemValue="19488"
+								itemDisabled="#{userBean.loggedInUser.businessPlan=='Flying Solo'?'false':'true'}" />
+							<f:selectItem itemLabel="Medium" itemValue="19489"
+								itemDisabled="#{userBean.loggedInUser.businessPlan=='Flying Solo' || userBean.loggedInUser.businessPlan=='Small Business'?'false':'true'}" />
+							<f:selectItem itemLabel="Big Business" itemValue="19490"
+								itemDisabled="#{userBean.loggedInUser.businessPlan=='Big Business' || userBean.loggedInUser.businessPlan=='Enterprise'?'true':'false'}" />
+							<f:selectItem itemLabel="Small Biz Plus" itemValue="21161" />
+							<f:selectItem itemLabel="Medium Biz Plus" itemValue="21162" />
+							<f:selectItem itemLabel="Big Biz Plus" itemValue="21163" />
+						</h:selectOneMenu>
+						<p:commandLink value=" UPDATE" action="#{userBean.updatePakege}"
+							ajax="false" styleClass="update-btn" />
+					</div>
+					<div class="clear"></div>
+					<p class="dashboard-actions">
+						<img src="/admin/images/icons/action-2.jpg" />Chat Box
+						Installation: <a href="/admin/install.html">Get your code</a>
+					</p>
+					<p class="dashboard-actions">
+						<img src="/admin/images/icons/action-1.jpg" />Click the <a
+							href="/admin/operator.html">Operators</a> tab for more
+						information.
+					</p>
+					<p class="dashboard-actions">
+						<img src="/admin/images/icons/action-3.jpg" />
+						<p:commandLink action="#{userBean.changePlanInfo}">Change
+				Account and Plan Info</p:commandLink>
+					</p>
+					<p class="dashboard-actions_promo">
+						<p:commandLink id="Promotion_Medium" value="Add Promotion User"
+							style="color: #0A8EFF !important;" onclick="addUserDlg.show()"
+							actionListener="#{userBean.getPricingInfo}"
+							rendered="#{userBean.loggedInUser.email=='customerservice@assistro.com'?'true':'false'}"
+							update=":addUserForm:userEmail,:addUserForm:password,:addUserForm:confirmpassword" />
+					</p>
+
+				</section>
+				<!-- // dashboard left -->
+				<section id="dashboard-right">
+					<img src="/admin/images/dashboard-right-heading.png" />
+					<p>join us on Twitter, LinkedIn, Google+ and Facebook</p>
+					<div class="share-icons">
+						<a href="https://www.facebook.com/assistro" title="Share Facebook"
+							onclick="return ! window.open(this.href);"><img
+							src="/admin/images/share-fb.png" />
+						</a> <a href="http://www.twitter.com/iamassistro"
+							title="Share Twitter" onclick="return ! window.open(this.href);"><img
+							src="/admin/images/share-tw.png" />
+						</a>
+						<div class="clear"></div>
+						<a href="https://plus.google.com/101803131252542079296"
+							title="Share Google" onclick="return ! window.open(this.href);"><img
+							src="/admin/images/google-share.png" />
+						</a> <a
+							href="http://www.linkedin.com/groups/assistro-Connect-Engage-Convert-4368826/about"
+							title="Share LinkedIn" onclick="return ! window.open(this.href);"><img
+							src="/admin/images/in-share.png" />
+						</a>
+					</div>
+				</section>
+				<!-- // dashboard right -->
+				<div class="clear"></div>
+
+			</section>
+		</h:form>
+		<div id="ui-content-bottom"></div>
+		<ui:include src="/templates/forgetPassword.xhtml" />
+		<ui:include src="/templates/addUser.xhtml" />
+	</ui:define>
+</ui:composition>
+</html>

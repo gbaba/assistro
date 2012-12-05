@@ -1,0 +1,99 @@
+/* fade id tabs */
+.fade { 
+	width:900px; 
+	margin:0px auto; 
+	}
+	
+.fade .tabs { 
+	float:left;
+	padding-top:57px;
+	background:url(../images/tabs-bg.jpg);
+}
+	
+.fade .tabs li {
+  list-style:none; 
+  float:left;
+}
+  
+.fade .tabs li a { 
+  display:block;
+  float:left; 
+  width:148px; 
+  text-align:center; 
+  color:#222222;
+  text-decoration:none; 
+  border:1px solid #eeeeee;
+  height:43px;
+  background:url(../images/tab-normal.jpg);
+  line-height:48px;
+  font-size:12px;
+  font-family: 'PTSansRegular';
+}
+  
+.fade .tabs li a:hover {
+	background:url(../images/tab-hover.jpg)!important;
+	color:#fff!important;
+	text-shadow:1px 1px 1px #6c7076
+
+}
+	
+.fade .tabs li a.selected { 
+	background:url(../images/tab-hover.jpg)!important;
+	color:#fff!important;
+	text-shadow:1px 1px 1px #6c7076
+	
+}
+.fade .items { 
+	clear:both; 
+	position:relative; 
+	top:0; 
+	left:0;
+	height:330px; 
+ }
+ 
+.fade .items div { 
+	display:none; 
+	position:absolute; 
+	top:0; 
+	left:0;
+}
+
+.image-right {
+	float:right;
+}
+
+.feature-info {
+	float:left;
+	width:300px;
+	margin-right:30px;
+	margin-left:30px;
+}
+
+.feature-info h1 {
+	font-family:Myriad Pro;
+	color:#92bb1e;
+	font-size:24px;
+	margin-top:45px;
+}
+
+.feature-info p {
+	color:#000;
+	font-size:14px;
+	line-height:16px;
+	font-family: 'PTSansRegular';
+	margin-top:10px;
+}
+
+.feature-info h3 {
+	font-size:12px;
+	color:#6a6a6a;
+	font-family: 'PTSansBold';
+	margin-top:15px;
+	display:inline-block;
+	margin-right:10px;
+}
+
+.store-img {
+	position:relative;
+	top:5px;
+}

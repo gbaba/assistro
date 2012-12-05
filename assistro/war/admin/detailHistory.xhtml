@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:template="/template/MainLayout.xhtml">
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | History detail</title>
+	</ui:define>
+	<ui:define name="head">
+		<style>
+.my_dtheader th,.my_dtheader tr {
+	background: none !important;
+	padding: 0px !important;
+	border: none !important;
+	line-height: 40px;
+	font-size: 14px;
+	color: white;
+	font-family: 'PTSansRegular';
+	text-shadow: 1px 1px 1px #6F7579;
+}
+
+.ui-datatable tfoot td {
+	padding: 0px !important;
+	border: none !important;
+}
+
+.ui-datatable .ui-datatable-data td,.ui-datatable .ui-datatable-data-empty td
+	{
+	border-style: none !important;
+	text-align: left;
+}
+
+.ui-growl {
+	
+}
+</style>
+	</ui:define>
+	<ui:define name="content">
+		<section id="ui-help-area">
+			<nav>
+				<ul>
+					<li><a href="/admin/history.html">History</a>
+					</li>
+				</ul>
+			</nav>
+			<a href="#" title="Need help? Contact us!" class="help-btn">Need
+				help? Contact us!</a>
+		</section>
+
+		<section id="ui-content">
+			<section id="history">
+				<h:form>
+					<div>
+						<span> <strong>Requester email:</strong> <h:outputText
+								value="#{userBean.chatSession.vistorId}" /> </span>
+					</div>
+
+					<div>
+						<span> <strong>Agent email:</strong> <h:outputText
+								value="#{userBean.chatSession.agentId}" /> </span>
+					</div>
+					
+					<div>
+						<span> <strong>Date and Time:</strong> <h:outputText
+								value="#{userBean.chatSession.chatTime}"><f:convertDateTime pattern="yyyy,MMM d,EEE h:mm a" timeZone="Australia/Melbourne"/></h:outputText></span>
+					</div>
+
+
+					<p:dataTable value="#{userBean.userChatMessages}" var="chatMess"
+						id="chatMessTable" styleClass="my_dtheader historytable"
+						rendered="#{userBean.loggedInUser.businessPlan=='Flying Solo'?'false':'true'}"> 
+						<p:column>
+							<strong style="color: green;"><h:outputText
+									value="Visitor: "
+									rendered="#{chatMess.messageType=='send'?'true':'false'}" />
+							</strong>
+							<h:outputText value="#{chatMess.message}"
+								rendered="#{chatMess.messageType=='send'?'true':'false'}" />
+							<strong style="color: blue;"><h:outputText
+									value="Operator(#{chatMess.agentId}): "
+									rendered="#{chatMess.messageType=='receive'?'true':'false'}" />
+							</strong>
+							<h:outputText value="#{chatMess.message}"
+								rendered="#{chatMess.messageType=='receive'?'true':'false'}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</section>
+			<div class="clear"></div>
+		</section>
+		<div id="ui-content-bottom"></div>
+	</ui:define>
+</ui:composition>
+</html>

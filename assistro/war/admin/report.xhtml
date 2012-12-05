@@ -1,0 +1,41 @@
+<!DOCTYPE html 
+
+         PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Report</title>
+	</ui:define>
+	<ui:define name="content">
+		<section id="ui-help-area"> <nav>
+		<ul>
+			<li><a href="#">Overview</a></li>
+		</ul>
+		</nav> <a href="#" title="Need help? Contact us!" class="help-btn">Need
+			help? Contact us!</a> </section>
+		<!-- // help area -->
+
+		<section id="ui-content"> <section id="reports"> <header>
+		<h1>Graph of visitor interactions over the past week...</h1>
+		</header> <p:barChart id="stacked" value="#{chartBean.linearModel}"
+										legendPosition="ne" style="height:300px"
+										title="Assistro Visitors Chart" minY="0"
+										maxY="#{chartBean.max}" /></section><!-- // reports page -->
+
+
+		<div class="clear"></div>
+		</section>
+		<!-- // content area -->
+
+		<div id="ui-content-bottom"></div>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,29 @@
+.chat_bocx{
+width:275px;
+height:225px;
+border-top:#e3e3e3 1px solid;
+border-left:#e3e3e3 1px solid;
+border-right:#e3e3e3 1px solid;
+border-bottom:#ababab 1px solid;
+}
+.heading {
+    background: url("../images/-heading.jpg") repeat-x scroll left top transparent;
+    color: #FFFFFF;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    height: 42px;
+    padding: 7px 0 0;
+    text-align: center;
+}
+.vcontent{
+padding:10px;
+}
+.chat_bocx p {
+    color: #554B4B;
+    font-family: verdana;
+    font-size: 13px;
+}
+.v_details tr td{
+padding:0 0 50px 0;
+}
