@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+<cron>
+<url>/cron/queueservice</url>
+<description>Put Queue Messages into database after every 3 mint</description>
+<schedule>every 2 minutes</schedule>
+</cron>
+<cron>
+<url>/cron/licenceservice</url>
+<description>Put Licence Service information into database after every 12 hours</description>
+<schedule>every 12 hours</schedule>
+</cron>
+</cronentries>

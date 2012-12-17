@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<faces-config xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd" >
+	 <application>
+	  <message-bundle>
+	  	com.vchat.i18n.messages
+	  </message-bundle>
+     </application>	
+    
+</faces-config>
