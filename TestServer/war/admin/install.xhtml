@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Install</title>
+	</ui:define>
+	<ui:define name="content">
+
+		<section id="ui-help-area"> <nav>
+		<ul>
+			<li><a href="#">Copy/Paste Code </a></li>
+			<li><a href="#">Choose Gtalk Operator </a></li>
+			<li><a href="#">Help</a></li>
+		</ul>
+		</nav> <a href="/pages/contact.html" title="Need help? Contact us!" class="help-btn">Need
+			help? Contact us!</a> </section>
+		<!-- // help area -->
+
+		<section id="ui-install-header"> <header> <hgroup>
+		<h4>Installing assistro is as easy as 1, 2….done!</h4>
+		</hgroup> <!-- <a href="#" class="video-tour-btn" title="Watch How To Video">watch
+			how to install video</a> --> </header> </section>
+		<!-- // intro part -->
+
+		<section id="ui-content"> <section id="install-steps">
+		<header> <img src="images/step-1.jpg" />
+		<h3>Copy and paste this code above the last tag on your site.</h3>
+		<p>Our code is already fully asynchronous and will not affect the
+			load time for your page</p>
+		</header>
+		<div id="code-wrapper-top"></div>
+		<div id="code-wrapper"><h:outputText value="#{widgetBean.widgetCode}"/></div>
+		<!-- // code for copy -->
+		<div id="code-wrapper-bottom"></div>
+		<a href="/pages/guide.html" class="additional-insutrctions-link">Click here for
+			additional installation instructions</a> <header> <img
+			src="images/step-2.jpg" />
+		<h3>Choose a Gtalk Operator</h3>
+		<p>To add a chat operator, simply visit the <a href="/admin/operator.html">“operator”</a> tab and add
+			your Gtalk ID.</p>
+		</header>
+
+		<div class="clear"></div>
+		</section><!-- // install steps --> </section>
+
+		<div id="ui-content-bottom"></div>
+	</ui:define>
+</ui:composition>
+</html>

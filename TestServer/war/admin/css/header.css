@@ -1,0 +1,66 @@
+/*
+Project Name: Assistro
+CSS Name: ie.css
+Version: 0.1
+Date: Aug 2012
+Quote of the Day: And no, we don't know where it will lead. We just know there's something much bigger than any of us here. - Steve Jobs 
+*/
+
+
+
+/*
+---------------------------------------------
+01. Homepage Header , site header
+---------------------------------------------
+*/
+
+section#ui-branding {
+	width:960px;
+	height:115px;
+	background:url(../images/ui-header-bg.jpg);
+	margin:0px auto 0 auto;
+}
+
+section#ui-main-menu {
+	width:959px;
+	height:69px;
+	background:url(../images/ui-menu-bg.png);
+	margin:0px auto 0 auto;
+}
+
+section#ui-main-menu li a {
+	display:block;
+	float:left;
+	color:#fff;
+	text-transform:uppercase;
+	font-size:16px;
+	font-family: 'PTSansNarrowRegular';
+	padding-left:25px;
+	padding-right:25px;
+	height:65px;
+	line-height:69px;
+}
+
+section#ui-main-menu li a:hover , .ui-menu-active {
+	background:url(../images/ui-main-menu-active.jpg);
+	color:#a0d318!important
+}
+
+section#ui-main-menu nav {
+	float:left;
+	width:830px;
+}
+
+.logout {
+	float:right;
+	width:110px;
+	height:27px;
+	background:url(../images/logout.png);
+	text-indent:-9999px;
+	margin-right:15px;
+	margin-top:20px;
+}
+
+.logout:hover {
+	background-position:0px -27px;
+}

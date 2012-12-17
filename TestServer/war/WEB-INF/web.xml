@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>Wildstar Technologies, LLC. Google AppEngine JSF 2.0
+		Template</display-name>
+
+	<description>
+    Template JSF 2.0 application configured to run on the Google
+    AppEngine for Java.
+   </description>
+
+	<!-- ***** Designate server-side state saving. ***** -->
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>client</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
+
+	<!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine -->
+
+	<context-param>
+		<description>
+        When enabled, the runtime initialization and default ResourceHandler
+        implementation will use threads to perform their functions. Set this 
+        value to false if threads aren't desired (as in the case of running 
+        within the Google Application Engine).
+        Note that when this option is disabled, the ResourceHandler will not 
+        pick up new versions of resources when ProjectStage is development.
+     </description>
+		<param-name>com.sun.faces.enableThreading</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<filter>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+		<init-param>
+			<param-name>thresholdSize</param-name>
+			<param-value>2097152</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>Queue Servlet</servlet-name>
+		<servlet-class>com.assistro.service.QueueService</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Licence Servlet</servlet-name>
+		<servlet-class>com.assistro.service.LicenceService</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Presence Servlet</servlet-name>
+		<servlet-class>com.assistro.service.PresenceReceiver</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SendEmail</servlet-name>
+		<servlet-class>com.assistro.service.SendEmail</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>VisitorData</servlet-name>
+		<servlet-class>com.assistro.service.VisitorData</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SendMessage</servlet-name>
+		<servlet-class>com.assistro.service.SendMessage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CloseMessage</servlet-name>
+		<servlet-class>com.assistro.service.CloseMessage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetMessage</servlet-name>
+		<servlet-class>com.assistro.service.GetMessage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ShowExcelData</servlet-name>
+		<servlet-class>com.assistro.service.ShowExcelData</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BillingInfo</servlet-name>
+		<servlet-class>com.assistro.service.BillingInfoChange</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>Upload</servlet-name>
+		<servlet-class>com.assistro.service.Upload</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Serve</servlet-name>
+		<servlet-class>com.assistro.service.Serve</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Resize</servlet-name>
+		<servlet-class>com.assistro.service.Resize</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>WidgetClose</servlet-name>
+		<servlet-class>com.assistro.service.WidgetClose</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SendMessage</servlet-name>
+		<url-pattern>/SendMessage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CloseMessage</servlet-name>
+		<url-pattern>/CloseMessage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetMessage</servlet-name>
+		<url-pattern>/GetMessage</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SendEmail</servlet-name>
+		<url-pattern>/SendEmail</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>VisitorData</servlet-name>
+		<url-pattern>/VisitorData</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ShowExcelData</servlet-name>
+		<url-pattern>/ShowExcelData</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BillingInfo</servlet-name>
+		<url-pattern>/changeInfo</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Queue Servlet</servlet-name>
+		<url-pattern>/cron/queueservice</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Licence Servlet</servlet-name>
+		<url-pattern>/cron/licenceservice</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>xmppreceiver</servlet-name>
+		<servlet-class>com.assistro.service.ChatReceiver</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>xmppreceiver</servlet-name>
+		<url-pattern>/_ah/xmpp/message/chat/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Presence Servlet</servlet-name>
+		<url-pattern>/_ah/xmpp/presence/available/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Presence Servlet</servlet-name>
+		<url-pattern>/_ah/xmpp/presence/unavailable/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Upload</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Serve</servlet-name>
+		<url-pattern>/serve</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Resize</servlet-name>
+		<url-pattern>/resize</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>WidgetClose</servlet-name>
+		<url-pattern>/WidgetClose</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.xhtml</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>SystemServiceServlet</servlet-name>
+		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+		<init-param>
+			<param-name>services</param-name>
+			<param-value/>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SystemServiceServlet</servlet-name>
+		<url-pattern>/_ah/spi/*</url-pattern>
+	</servlet-mapping>
+</web-app>

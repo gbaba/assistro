@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/MainLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Contact us</title>
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+		<section id="inner-page-header"> <img
+			src="images/mascot3.png" class="mascot2"/> <hgroup>
+			<h1>Contact us</h1>
+			<h2>We’d love to hear from you</h2>
+			</hgroup> 
+			<p:commandLink onclick="signupDlg.show()"
+							rendered="#{userBean.loggedInUser.active==true?'false':'true'}"
+							styleClass="get-started-now-btn-small">
+			</p:commandLink>
+			<div class="clear"></div></section></h:form>
+		<!-- // inner page header -->
+
+		<section id="help-area"> <a href="/pages/contact.html"
+			title="Need help? Contact us!">Need help? Contact us!</a>
+		<div class="clear"></div>
+		</section>
+		<!-- // help area -->
+
+		<section id="inner-page-content"> <section id="contact-left">
+		<p>
+			Have a Question? Contact us at <a
+				href="mailto:customerservice@assistro.com">customerservice@assistro.com</a>
+			. Use the form below or the data on the right-hand side. We are here
+			for you!
+		</p>
+		<img src="images/contact-shadow.jpg"/>
+			<h:form>
+				<label>Full Name</label>
+				<h:inputText value="#{userBean.fullName}" required="true" requiredMessage="Name should not be empty" />
+				
+				<label>Email</label> <h:inputText
+							value="#{userBean.emailAddress}" required="true"
+							requiredMessage="Email should not be empty" />
+							<label>Phone</label> <h:inputText
+							value="#{userBean.phoneNo}" required="true"
+							requiredMessage="Phone number should not be empty" />
+							
+							 <label class="message">Message</label> <h:inputTextarea
+							value="#{userBean.message}" required="true"
+							requiredMessage="There should be a message"/>
+								<div class="clear"></div> 
+							<p:commandLink styleClass="submit-btn"
+							action="#{userBean.sendEmailToAdmin}">
+							<h:graphicImage value="images/send-btn.jpg"/>
+							</p:commandLink>
+								
+								<!-- <input type="image"
+								src="images/send-btn.jpg" class="submit-btn"/> -->
+			</h:form></section><!-- // contact left --> <aside id="contact-right"> <header>
+		<h2>Sloan Group Pty Ltd T/A assistro</h2>
+		</header> <img src="images/acn.png" class="acn"/><p class="acn2">23
+				147 668 193</p> <img src="images/icons/address.png" class="office"/><p
+					class="office2">
+					(office)<!-- &nbsp;&nbsp;&nbsp; --> Level 10, 50 Market St<br></br><span>
+							Melbourne VIC 3000</span>
+				</p>
+				<p class="office3">
+					(mail) <!-- &nbsp;&nbsp;&nbsp; --> PO Box 82,<br></br> <span>South
+							Melbourne VIC 3205. Australia</span>
+				</p> <img src="images/icons/phone.png" class="phone"/>
+					<p class="phone2">+61 3 9013 3777</p> <img
+					src="images/icons/email.png" class="email"/><a
+						href="mailto:customerservice@assistro.com" class="email2">customerservice@assistro.com</a>
+						<div class="clear"></div>
+						<div class="social-icons2">
+							<h3>Connect with us</h3>
+							<a href="#" title="Blog"><img src="images/icons/rss.png"
+								alt="RSS"/></a> <a href="#" title="FaceBook"><img
+								src="images/icons/fb.png" alt="FaceBook"/></a> <a href="#"
+								title="Twitter"><img src="images/icons/tw.png" alt="Twitter"/></a>
+							<a href="#" title="LinkedIn"><img src="images/icons/in.png"
+								alt="LinkedIn"/></a>
+						</div></aside><!-- // contac tirght -->
+
+		<div class="clear"></div>
+		</section>
+		<!-- // inner page content -->
+
+		<div id="homepage-content-bottom"></div>
+
+		<section id="take-a-tour"> <header id="take-a-tour-header">
+		<h1>Assistro is all-in-one live chat software solution</h1>
+		<h2>Connect with your web visitors, engage them in conversation, convert them in to leads or sales.</h2>
+		</header><!-- // header of take a tour --> <a href="/pages/features.html" class="take-a-tour-btn"
+			title="Take a Tour">Take a Tour</a> </section>
+		<!-- // take a tour -->
+	</ui:define>
+</ui:composition>
+</html>

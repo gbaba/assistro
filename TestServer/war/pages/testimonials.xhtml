@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/MainLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Testimonials</title>
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+		<section id="inner-page-header">
+			<img src="images/mascot3.png" class="mascot2" />
+			<hgroup>
+				<h1>Testimonials</h1>
+				<h2>What our clients say about Assistro</h2>
+			</hgroup>
+			<p:commandLink onclick="signupDlg.show()"
+							rendered="#{userBean.loggedInUser.active==true?'false':'true'}"
+							styleClass="get-started-now-btn-small">
+			</p:commandLink>
+			<div class="clear"></div>
+		</section></h:form>
+		<!-- // inner page header -->
+
+		<section id="help-area">
+			<a href="/pages/contact.html" title="Need help? Contact us!">Need help? Contact us!</a>
+			<div class="clear"></div>
+		</section>
+		<!-- // help area -->
+
+		<section id="inner-page-content">
+
+			<div class="testimonial-wrapper">
+				<article class="testimonial-box">
+					<p>assistro has changed everything! It took me about 30 seconds
+						to install and literally a minute later I had it configured for my
+						needs. Hooking into Google Talk is the best part as I can be
+						available for chat on my iPhone and PC all at the same time. I
+						even was able to close a deal with a customer soon after getting
+						it installed! Assistro gets 5 stars, without it, you’re losing
+						sales.</p>
+				</article>
+				<!-- // testimonial -->
+				<img src="images/testimonial-bottom.jpg" class="bottom" /> <img
+					src="images/client-logo.jpg" class="client-logo" /> <span
+					class="client"><strong>Clint Marsden,</strong> Marsden Vox </span>
+			</div>
+			<!-- // test wrapper -->
+
+			<div class="testimonial-wrapper">
+				<article class="testimonial-box">
+					<p>Having assistro Live Chat on our Webpage gives us and the
+						customer an extra way of communicating. Not only do we answer their
+						questions live while they browse our website, it gives us the
+						opportunity to gain trust and then close the sale. We love it!</p>
+				</article>
+				<!-- // testimonial -->
+				<img src="images/testimonial-bottom.jpg" class="bottom" />  <span
+					class="client"><strong>Ricky Cusolito,</strong> Master
+					Mobile </span>
+			</div>
+			<!-- // test wrapper -->
+
+			<div class="clear"></div>
+
+			<div class="testimonial-wrapper">
+				<article class="testimonial-box">
+					<p>We started receiving sales leads the first day we installed
+						assistro on our website! It was very simple to install and has
+						been one of the best decisions we have made this year.</p>
+				</article>
+				<!-- // testimonial -->
+				<img src="images/testimonial-bottom.jpg" class="bottom" /> <span
+					class="client"><strong>Jen B</strong> </span>
+			</div>
+			<!-- // test wrapper -->
+
+			<div class="testimonial-wrapper">
+				<article class="testimonial-box">
+					<p>Our website doesn’t get a high volume of traffic, so it’s
+						important that we maximise the opportunity from every visitor that
+						comes to our site. We added assistro so we could communicate
+						directly with the people who visit our website and answer their
+						initial questions about what we do. We’ve been using assistro for
+						a few months now and our sales pipeline is looking better than
+						ever!</p>
+				</article>
+				<!-- // testimonial -->
+				<img src="images/testimonial-bottom.jpg" class="bottom" /> <span
+					class="client"><strong>Steven,</strong> MYST Media </span>
+			</div>
+			<!-- // test wrapper -->
+
+			<div class="clear"></div>
+
+		</section>
+		<!-- // inner page content -->
+
+		<div id="homepage-content-bottom"></div>
+
+		<section id="take-a-tour">
+			<header id="take-a-tour-header">
+				<h1>Assistro is all-in-one live chat software solution</h1>
+				<h2>Connect with your web visitors, engage them in conversation, convert them in to leads or sales.</h2>
+			</header>
+			<!-- // header of take a tour -->
+			<a href="/pages/features.html" class="take-a-tour-btn" title="Take a Tour">Take a
+				Tour</a>
+		</section>
+		<!-- // take a tour -->
+
+	</ui:define>
+</ui:composition>
+</html>

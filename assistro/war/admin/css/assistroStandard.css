@@ -207,7 +207,7 @@ div#chat-app-footer input[type="text"] {
 	background: url(../images/chat-send-btn.png);
 	text-indent: -9999px;
 	margin-right: 22px;
-    margin-top: 16px;
+	margin-top: 16px;
 }
 
 .before-chat-btn:hover {
@@ -286,7 +286,7 @@ div#chat-app-footer input[type="text"] {
 }
 
 .buttons {
-	margin-top:14px;
+	margin-top: 14px;
 }
 
 .cross {
@@ -312,8 +312,9 @@ div#chat-app-footer input[type="text"] {
 .input-beforeCh {
 	width: 270px;
 	height: 25px;
-		/* For WebKit (Safari, Google Chrome etc) */
-	background: -webkit-gradient(linear, left top, left bottom, from(black), to(#9C9C9C) );
+	/* For WebKit (Safari, Google Chrome etc) */
+	background: -webkit-gradient(linear, left top, left bottom, from(black),
+		to(#9C9C9C) );
 	/* For Mozilla/Gecko (Firefox etc) */
 	background: -moz-linear-gradient(top, black, #9C9C9C);
 	/* For Internet Explorer 5.5 - 7 */
@@ -322,7 +323,7 @@ div#chat-app-footer input[type="text"] {
 	/* For Internet Explorer 8 */
 	-ms-filter:
 		"progid:DXImageTransform.Microsoft.gradient(startColorstr=black, endColorstr=#9C9C9C)";
-		border:none;
+	border: none;
 	color: #fff;
 	font-size: 12px;
 	padding-left: 10px;
@@ -338,14 +339,15 @@ div .input-offbe {
 	border: solid silver 1px;;
 	color: #fff;
 	font-size: 12px;
-	font-family:'arial';
+	font-family: 'arial';
 	padding-left: 10px;
 	background-repeat: no-repeat;
 	margin-left: 17px;
 	margin-top: 5px;
 	display: block;
-		/* For WebKit (Safari, Google Chrome etc) */
-	background: -webkit-gradient(linear, left top, left bottom, from(black), to(#9C9C9C) );
+	/* For WebKit (Safari, Google Chrome etc) */
+	background: -webkit-gradient(linear, left top, left bottom, from(black),
+		to(#9C9C9C) );
 	/* For Mozilla/Gecko (Firefox etc) */
 	background: -moz-linear-gradient(top, black, #9C9C9C);
 	/* For Internet Explorer 5.5 - 7 */
@@ -359,7 +361,8 @@ div .input-offbe {
 div .text-offbe {
 	width: 270px;
 	height: 65px;
-	background: -webkit-gradient(linear, left top, left bottom, from(black), to(#9C9C9C) );
+	background: -webkit-gradient(linear, left top, left bottom, from(black),
+		to(#9C9C9C) );
 	/* For Mozilla/Gecko (Firefox etc) */
 	background: -moz-linear-gradient(top, black, #9C9C9C);
 	/* For Internet Explorer 5.5 - 7 */
@@ -371,7 +374,7 @@ div .text-offbe {
 	border: solid silver 1px;
 	color: white;
 	font-size: 12px;
-	font-family:'arial';
+	font-family: 'arial';
 	padding-left: 10px;
 	background-repeat: no-repeat;
 	margin-left: 15px;
@@ -503,6 +506,24 @@ div#live-chat-btn h3 {
 	margin-right: 161px;
 }
 
+div#new_msg {
+	width: 183px;
+	height: 85px;
+	background: url(../images/bubble.png);
+	margin-bottom: -370px;
+	margin-left: 170px;
+}
+
+div#new_msg p {
+	margin-left: 145px;
+	padding-top: 7px;
+	font-size: 18px;
+	font-family: arial;
+	color: white;
+	text-align: left;
+	line-height: 1.4em;
+}
+
 div#chat-app-footer input[type="text"] {
 	width: 229px;
 	height: 33px;
@@ -532,15 +553,17 @@ div#before-chat-content label {
 	font-family: arial;
 	margin-left: 15px;
 }
+
 div#before-chat-content p {
-color: green;
-margin-left: 18px;
-margin-top: 0px;
-font-family: arial;
-font-size: 12px;
-line-height: 24px;
+	color: green;
+	margin-left: 18px;
+	margin-top: 0px;
+	font-family: arial;
+	font-size: 12px;
+	line-height: 24px;
 }
-*{
-	margin:0;
-	padding:0;
+
+* {
+	margin: 0;
+	padding: 0;
 }

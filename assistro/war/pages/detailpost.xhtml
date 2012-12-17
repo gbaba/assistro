@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/MainLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Blog</title>
+	</ui:define>
+	<ui:define name="head">
+	</ui:define>
+
+	<ui:define name="content">
+		<section id="inner-page-header">
+			<img src="/pages/images/mascot2.png" class="mascot2" />
+			<hgroup>
+				<h1>Blog</h1>
+				<h2>assistro blog for you.</h2>
+			</hgroup>
+			<a href="#" class="get-started-now-btn-small" title="Get Started Now">Get
+				Started Now</a>
+			<div class="clear"></div>
+		</section>
+		<!-- // inner page header -->
+		<section id="help-area">
+			<a href="#" title="Need help? Contact us!">Need help? Contact us!</a>
+			<div class="clear"></div>
+		</section>
+		<!-- // help area -->
+		<section id="inner-page-content">
+			<section id="contact-left">
+				<article id="blog_detail_post">
+					<header>
+							<h3><h:outputText value="#{userBean.detailPost.blogTopic}" style="font-family: 'PTSansRegular';color: #383738;"/></h3>
+					</header>
+					<br></br>
+					<span class="artSpan">Posted on </span>
+					<h:outputText value="#{userBean.detailPost.blogDate}" style="color: #2F2F99" styleClass="artSpan">
+						<f:convertDateTime pattern="MMM d,yyyy,EEE h:mm a"
+							timeZone="Australia/Melbourne" />
+					</h:outputText>
+					<span class="artSpan"> by </span><strong style="font-family: 'PTSansRegular';color: #696869;"><h:outputText value="#{userBean.detailPost.blogAthor}"/></strong>
+					<p>
+						<h:outputText value="#{userBean.detailPost.blogBody}"
+							escape="false" />
+					</p>
+
+				</article>
+				<hr></hr>
+				<h:form id="comform">
+					<p:growl id="postMessage" showDetail="true" />
+					<p:panel id="comArea">
+						<h:dataTable value="#{userBean.blogComments}" var="comm"
+							id="comTable">
+							<h:column>
+								<!-- <h:graphicImage value="/pages/images/avatar.jpg"
+									styleClass="comImg" /> -->
+								<h3 class="comName"><h:outputText value="#{comm.comUsrName}" /></h3>
+								<article id="commentBody">
+									<span>said on
+									</span> <span style="color: blue"> <h:outputText
+											value="#{comm.comDate}">
+											<f:convertDateTime pattern="MMM d,yyyy,EEE h:mm a"
+												timeZone="Australia/Melbourne" />
+										</h:outputText>
+									</span>
+									<p style="margin-top: 5px">
+										<h:outputText value="#{comm.comBody}" />
+									</p>
+								</article>
+							</h:column>
+						</h:dataTable>
+					</p:panel>
+					<h3 style="font-family: arial">Leave a Comment..</h3>
+					<br> </br>
+					<h:panelGroup id="myCom"
+						rendered="#{userBean.loggedInUser.active==true || userBean.checkComment?'false':'true'}">
+						<label>Full Name</label>
+						<h:inputText value="#{userBean.blogCom.comUsrName}"
+							required="true" requiredMessage="Name should not be empty" />
+						<label>Email</label>
+						<h:inputText value="#{userBean.blogCom.comUsrEmail}"
+							required="true" requiredMessage="Email should not be empty" />
+					</h:panelGroup>
+					<label class="message">Message</label>
+					<h:inputTextarea id="messageArea"
+						value="#{userBean.blogCom.comBody}" required="true"
+						requiredMessage="There should be a message" />
+					<div class="clear"></div>
+					<p:commandLink styleClass="submit-btn"
+						action="#{userBean.addBlogComment}"
+						update="comArea postMessage myCom messageArea comform">
+						<h:graphicImage value="/pages/images/send-btn.jpg" />
+					</p:commandLink>
+
+				</h:form>
+			</section>
+			<!-- // contact left -->
+
+			<div class="clear"></div>
+		</section>
+		<!-- // inner page content -->
+		<div id="ui-content-bottom"></div>
+	</ui:define>
+</ui:composition>
+</html>

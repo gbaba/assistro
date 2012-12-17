@@ -18,6 +18,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import com.vchat.beans.Blog;
+import com.vchat.beans.BlogComment;
 import com.vchat.beans.Chart;
 import com.vchat.beans.Chat;
 import com.vchat.beans.User;
@@ -285,6 +287,7 @@ public class VchatController {
 				wc1.setProActiveChat(wc.isProActiveChat());
 				wc1.setOfflineEmailAdmin(wc.getOfflineEmailAdmin());
 				wc1.setWidgetStyle(wc.getWidgetStyle());
+				wc1.setProOperator(wc.getProOperator());
 				wc = em.merge(wc1);
 				em.getTransaction().commit();
 			} catch (Exception e) {
@@ -902,6 +905,112 @@ public class VchatController {
 			em.close();
 		}
 		return visRec;
+	}
+	
+	//blog related methods
+	@SuppressWarnings("unchecked")
+	public boolean publishPost(Blog blog) {
+		boolean check = false;
+		EntityManager em = VchatService.get().createEntityManager();
+
+		try {
+			Query query = em
+					.createQuery("select blog from Blog as blog where blog.blogKey = blogKey");
+			query.setParameter("blogKey", blog.getBlogKey());
+			List<Blog> blogList = query.getResultList();
+			if (blogList.size() == 0) {
+				em.persist(blog);
+				check = true;
+				
+			}
+		} catch (NoResultException nre) {
+
+		} catch (Exception e) {
+			log.severe("Error in posting: " + e.getMessage());
+		} finally {
+			em.close();
+		}
+		return check;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Blog> getBlogPosts(String cat) {
+		EntityManager em = VchatService.get().createEntityManager();
+		List<Blog> postList = new ArrayList<Blog>();
+		try {
+			Query query = em
+					.createQuery("select blog from Blog as blog where blog.blogCat = blogCat");
+			query.setParameter("blogCat",cat);
+			postList = (List<Blog>) query.getResultList();
+			for (Blog blog : postList) {
+				blog.getBlogDate();
+			}
+		} catch (NoResultException nre) {
+
+		} catch (Exception e) {
+			log.severe("Error in getBlogPosts: " + e.getMessage());
+		} finally {
+			em.close();
+		}
+		return postList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Blog> getTowTopBlogPosts() {
+		EntityManager em = VchatService.get().createEntityManager();
+		List<Blog> postList = new ArrayList<Blog>();
+		try {
+			Query query = em
+					.createQuery("select blog from Blog as blog order by blogDate desc");
+			query.setMaxResults(2);
+			postList = (List<Blog>) query.getResultList();
+			for (Blog blog : postList) {
+				blog.getBlogDate();
+			}
+		} catch (NoResultException nre) {
+
+		} catch (Exception e) {
+			log.severe("Error in getBlogPosts: " + e.getMessage());
+		} finally {
+			em.close();
+		}
+		return postList;
+	}
+	
+	public void enterComment(BlogComment blogCom) {
+		EntityManager em = VchatService.get().createEntityManager();
+
+		try {
+				em.persist(blogCom);
+		} catch (NoResultException nre) {
+
+		} catch (Exception e) {
+			log.severe("Error in posting Comment: " + e.getMessage());
+		} finally {
+			em.close();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<BlogComment> getBlogComments(Blog blog) {
+		EntityManager em = VchatService.get().createEntityManager();
+		List<BlogComment> commentList = new ArrayList<BlogComment>();
+		try {
+			Query query = em
+					.createQuery("SELECT comm FROM BlogComment as comm where comm.blogKeyVal = blogKeyVal");
+			query.setParameter("blogKeyVal",blog.getBlogKey());
+			commentList = (List<BlogComment>) query.getResultList();
+			for (BlogComment blogCom : commentList) {
+				blogCom.getComDate();
+			}
+		} catch (NoResultException nre) {
+
+		} catch (Exception e) {
+			log.severe("Error in getBlogPostComments: " + e.getMessage());
+		} finally {
+			em.close();
+		}
+		return commentList;
 	}
 
 }

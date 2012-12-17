@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Blog</title>
+	</ui:define>
+<ui:define name="head">	
+			
+</ui:define>
+	<ui:define name="content">
+		<!-- // help area -->
+		<section id="ui-content"> 
+			<section id="blog_data">
+			<h1>Publish your post on assistro Blog</h1>
+			<h:form>
+			<h:panelGrid cellpadding="2">
+				<label>Post Athor Name:</label>
+					<h:inputText id="colh" value="#{userBean.blog.blogAthor}"
+						maxlength="26" />
+				<label>Post Topic:</label>
+					<h:inputText id="col1h" value="#{userBean.blog.blogTopic}"
+						maxlength="26" />
+				<label>Post Body:</label>
+				<p:editor id="editor" value="#{userBean.blog.blogBody}"
+					width="910" height="200" />
+				<label>Select Category:</label>
+				<h:selectOneMenu id="language2"
+							value="#{userBean.blog.blogCat}">
+							<f:selectItem itemLabel="News" itemValue="News" />
+							<f:selectItem itemLabel="Features" itemValue="Features"/>
+							<f:selectItem itemLabel="Tips" itemValue="Tips" />
+							<f:selectItem itemLabel="Miscellaneous" itemValue="Miscellaneous"/>
+						</h:selectOneMenu>
+
+			</h:panelGrid>
+			<br></br>
+				<p:commandLink id="postBut" action="#{userBean.addBlogPost}">
+						<h:graphicImage value="images/update-submit.png" />
+					</p:commandLink>
+			</h:form>
+			</section>
+		</section>
+		<div class="clear"></div>
+
+		<div id="ui-content-bottom"></div>
+	</ui:define>
+</ui:composition>
+</html>

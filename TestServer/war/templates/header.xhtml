@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:util="http://java.sun.com/jsf/composite/components/util"
+	xmlns:p="http://primefaces.org/ui">
+	<h:form>
+	<p:panel style="background: black;" rendered="#{userBean.loggedInUser.active==true?'true':'false'}">
+	<section id="admin-bar-wrapper">
+	<div id="admin-bar">
+    	<p>Hello, <h:outputText value="#{userBean.loggedInUser.fullName}"/></p>
+        <nav>	
+        	<ul>
+            	<li><a href="/dashboard.html">Dashboard</a></li>
+                <li><a href="/admin/customize.html">Customize</a></li>
+                <li><a href="/admin/install.html">Install</a></li>
+                <li><a href="/admin/operator.html">Operators </a></li>
+                <li><a href="/admin/report.html">Reports</a></li>
+                <li><a href="/admin/history.html">History</a></li>
+            </ul>
+        </nav>
+    </div>
+	</section></p:panel>
+	<!--// admin bar at top-->
+	
+	<section id="top-bar-wrapper">
+		<div id="top-bar">
+    	<div id="branding">
+        	<a href="http://iamassistro.appspot.com/welcome.html" title="Assistro"><img src="/pages/images/site-logo.png" alt="Assistro"/></a>
+        </div><!-- // logo area -->
+        <nav id="main-menu">
+        	<ul>
+            	<li><a href="/welcome.html" class="home-link">Home</a></li>         
+                <li><a href="/pages/features.html">Features</a></li>          
+                <li><a href="/pages/faq.html">FAQ</a></li>          
+                <li><a href="/pages/pricing.html">Pricing</a></li>          
+                <li><a href="/pages/testimonials.html">Testimonials</a></li>
+                <li><a href="/pages/contact.html">Contact us</a></li>
+            </ul>
+        </nav><!-- // main menu -->
+ <!--        <a href="#" class="sign-in-btn" title="Sign In">Sign In</a> -->
+	        <p:commandLink onclick="signInDlg.show()"
+							rendered="#{userBean.loggedInUser.active==true?'false':'true'}"
+							styleClass="sign-in-btn">
+						</p:commandLink>
+		<!-- <a href="http://localhost:8888/templates/signIn.html" class="fancybox fancybox.iframe sign-in-btn">Sign In</a> -->
+	
+		<div class="clear">
+        </div>
+    </div><!-- // top bar inner -->
+    </section>
+    </h:form>
+    <f:event listener="#{userBean.doRememberMe}" type="preRenderView" />
+</ui:composition>

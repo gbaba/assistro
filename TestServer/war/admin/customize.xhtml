@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Customize</title>
+	</ui:define>
+	<ui:define name="head">
+		<style>
+.ui-widget-content {
+	border: none;
+}
+
+.ui-growl {
+	
+}
+
+.chat_container .content1 {
+	background: url("../images/widget/content.png") repeat-y scroll left top
+		transparent;
+	height: 310px;
+	margin: -12px 0 !important;
+	padding: 10px 10px 0 !important;
+	width: 313px;
+}
+</style>
+		<link href="../css/widget.css" rel="stylesheet" type="text/css" />
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<section id="ui-help-area">
+				<nav>
+					<ul>
+						<li><a href="#">Customize your Messages</a></li>
+					</ul>
+				</nav>
+				<a href="#" title="Need help? Contact us!" class="help-btn">Need
+					help? Contact us!</a>
+			</section>
+			<!-- // help area -->
+
+			<section id="ui-content">
+
+				<section id="customize-left">
+					<header>
+						<h1>Customize your Widget Messages</h1>
+					</header>
+					<p class="notify">Note: You can only use
+						abcdefghijklmnopqrstuvwxyz1234567890 for input data.</p>
+					<h2>Collapsed State</h2>
+					<label>Online Header Text</label>
+					<h:inputText id="colOh" value="#{widgetBean.wc.colstate}"
+						maxlength="26" />
+					<span class="liner"></span> <label>Offline Header Text</label>
+					<h:inputText id="colOffh" value="#{widgetBean.wc.errorState}"
+						maxlength="26" />
+					<h2>Expanded State</h2>
+					<label>Prompt for email before chat</label>
+					<h:selectBooleanCheckbox value="#{widgetBean.wc.showMessage}" />
+					<span class="liner"></span> <label>Online Header Text</label>
+					<h:inputText id="exonhe" value="#{widgetBean.wc.onlineHeader}"
+						maxlength="26" />
+					<span class="liner"></span> <label>Offline Header Text</label>
+					<h:inputText id="exoffhe" value="#{widgetBean.wc.offlineHeader}"
+						maxlength="26" />
+					<span class="liner"></span> <label>Online Display Text</label>
+					<h:inputText id="ondis" value="#{widgetBean.wc.mPanel}" />
+					<span class="liner"></span> <label>Offline Display Text</label>
+					<h:inputText id="offdis" value="#{widgetBean.wc.offLinePanel}" />
+					<span class="liner"></span> <label>Want To Activate
+						ProActive Chat</label>
+					<h:selectBooleanCheckbox value="#{widgetBean.wc.proActiveChat}" />
+					<span class="liner"></span> <label>Your ProActive Chat
+						Message: </label>
+					<h:inputText styleClass="otf" value="#{widgetBean.wc.inPanel}" />
+					<span class="liner"></span> <label>Offline Admin Email</label>
+					<h:inputText id="offemail"
+						value="#{widgetBean.wc.offlineEmailAdmin}" />
+					<span class="liner"></span>
+					<!-- <input type="image" src="images/update-submit.png"  /> -->
+					<p:commandLink id="widBut" action="#{widgetBean.updateWid}"
+						reRender="content" update="customizeMess updateWid updateWid1">
+						<h:graphicImage value="images/update-submit.png" />
+					</p:commandLink>
+				</section>
+				<p:growl id="customizeMess" showDetail="true" />
+
+				<!-- // customize your messages left -->
+				<aside id="customize-sidebar">
+					<section id="design-selector">
+						<header>
+							<h3>select design</h3>
+							<h:selectOneMenu id="language"
+								value="#{widgetBean.wc.widgetStyle}">
+								<f:selectItem itemLabel="Standard" itemValue="assistroStandard" />
+								<f:selectItem itemLabel="Classic" itemValue="assistroClassic" />
+								<f:ajax listener="#{widgetBean.updateWid}" render="myscript"/>
+							</h:selectOneMenu>
+						</header>
+					</section>
+					<h:panelGroup id="myscript">
+					<!-- // select design -->
+					<p:panel id="updateWid" rendered="#{widgetBean.wc.widgetStyle=='assistroStandard'?'true':'false'}">
+					<!-- <link href="/admin/css/assistroStandard.css" rel="stylesheet" type="text/css" /> -->
+						<section id="design-preview">
+							<header>
+								<h4>
+									Real-time preview <img src="images/arrow.png" />
+								</h4>
+								<br></br>
+
+								<div id="chat-app-wrapper" class="expand-menu">
+									<div id="chat-app-top-window">
+										<h3>
+											<h:outputText value="#{widgetBean.wc.onlineHeader}" />
+										</h3>
+									</div>
+									<div class="clear"></div>
+									<div id="chat-app-header">
+										<div id="chat-app-avatar">
+											<p:graphicImage value="#{userBean.opView.agentImageURL}"
+											rendered="#{userBean.opView.agentImageURL!=null?'true':'false'}" width="43" height="42"/>
+										<!-- <p:graphicImage value="images/chat-app-avatar-bg.png"
+											rendered="#{userBean.opView.agentImageURL!=null?'false':'true'}" /> -->
+										</div>
+										<h4><h:outputText value="#{userBean.opView.agentName}"/></h4>
+										<h5><h:outputText value="#{widgetBean.wc.mPanel}"/></h5>
+										<div class="clear"></div>
+									</div>
+									<div id="chat-app-content">
+										<div id="content_1" class="content">
+											<p><h:outputText value="#{widgetBean.wc.inPanel}" rendered="#{widgetBean.wc.proActiveChat}" /></p>
+										</div>
+									</div>
+									<div id="chat-app-footer">
+										<input type="text" value="Type your message here"
+											name="visitors_name"
+											onblur="if(value=='') value = 'Type your message here'"
+											onfocus="if(value=='Type your message here') value = ''" />
+										<a href="#" class="chat-send-btn">send</a>
+									</div>
+									<div id="chat-app-copy">
+										<p>
+											powered by <a href="#">assistro</a>
+										</p>
+									</div>
+								</div>
+								<!-- // wrapper of chat -->
+
+								<!-- <div id="live-chat-btn">live chat </div> -->
+
+							</header>
+						</section>
+					</p:panel>
+					
+						<p:panel id="updateWid1" rendered="#{widgetBean.wc.widgetStyle=='assistroClassic'?'true':'false'}">
+						<link href="/admin/css/assistroClassic.css" rel="stylesheet" type="text/css" />
+						<section id="design-preview">
+							<header>
+								<h4>
+									Real-time preview <img src="images/arrow.png" />
+								</h4>
+								<br></br>
+
+								<div id="chat-app-wrapper" class="expand-menu">
+									<div id="chat-app-top-window">
+										<h3>
+											<h:outputText value="#{widgetBean.wc.onlineHeader}" />
+										</h3>
+									</div>
+									<div class="clear"></div>
+									<div id="chat-app-header">
+										<div id="chat-app-avatar">
+											<img src="images/chatavatar.jpg" />
+										</div>
+										<h4>Nancy</h4>
+										<h5>sales manager</h5>
+										<div class="clear"></div>
+									</div>
+									<div id="chat-app-content">
+										<p class="top_label"><h:outputText value="#{widgetBean.wc.mPanel}"/></p>
+										<div id="content_1" class="content">
+											<p><h:outputText value="#{widgetBean.wc.inPanel}" rendered="#{widgetBean.wc.proActiveChat}" /></p>
+										</div>
+									</div>
+									<div id="chat-app-footer">
+										<input type="text" value="Type your message here"
+											name="visitors_name"
+											onblur="if(value=='') value = 'Type your message here'"
+											onfocus="if(value=='Type your message here') value = ''" />
+										<a href="#" class="chat-send-btn">send</a>
+									</div>
+									<div id="chat-app-copy">
+										<p>
+											powered by <a href="#">assistro</a>
+										</p>
+									</div>
+								</div>
+								<!-- // wrapper of chat -->
+
+								<!-- <div id="live-chat-btn">live chat </div> -->
+
+							</header>
+						</section>
+					</p:panel>
+					</h:panelGroup>
+					<!-- // design preview -->
+					<div id="design-preview-bottom"></div>
+				</aside>
+				<div class="clear"></div>
+			</section>
+		</h:form>
+		<div id="ui-content-bottom"></div>
+
+		<!-- 
+																<p>
+																	<h:outputText value="#{widgetBean.wc.onlineHeader}" />
+																</p>
+															</div>
+															<div class="content1">
+																<p>
+																	<h:outputText value="#{widgetBean.wc.mPanel}" />
+																</p>
+																<div id="mess" class="chat">
+																	<p>
+																		<h:outputText value="#{widgetBean.wc.inPanel}"
+																			class="host_name"
+																			rendered="#{widgetBean.wc.proActiveChat}" />
+																	</p>
+																</div>
+																<input id="sendmess" class="type_text" type="text" /> <input
+																	class="send" type="button" value="send" />
+															</div>
+															<div class="footer">
+																i am <a class="host" href="http://www.assistro.com">assistro</a>
+															</div> -->
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

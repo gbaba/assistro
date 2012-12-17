@@ -1,0 +1,237 @@
+.pricing_plans {
+	position: relative;
+}
+
+.free {
+	background: url(../images/pricing/images/solo.png) no-repeat left top;
+	height: 356px;
+	width: 190px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.solo {
+	background: url("../images/pricing/images/small_business.png") no-repeat scroll
+		left top transparent;
+	height: 356px;
+	left: 183px;
+	position: absolute;
+	top: 0;
+	width: 190px;
+}
+
+.medium_business {
+	background: url("../images/pricing/images/medium_business.png")
+		no-repeat scroll left top transparent;
+	height: 402px;
+	left: 361px;
+	position: absolute;
+	top: -26px;
+	width: 235px;
+	z-index: 10;
+}
+
+.small_business {
+	background: url("../images/pricing/images/big_business.png") no-repeat
+		scroll left top transparent;
+	height: 356px;
+	left: 571px;
+	position: absolute;
+	top: 0;
+	width: 190px;
+}
+
+.big_business {
+	background: url("../images/pricing/images/free.png") no-repeat
+		scroll left top transparent;
+	height: 356px;
+	left: 755px;
+	position: absolute;
+	top: 0;
+	width: 190px;
+}
+
+.price {
+	color: #818181;
+	display: block;
+	font-family: Myriad Pro;
+	font-size: 60px;
+	font-weight: bold;
+	padding: 46px 0 0;
+	text-align: center;
+	width: 170px;
+}
+
+.month {
+	display: block;
+	font-family: verdana;
+	font-size: 12px;
+	text-align: center;
+	width: 170px;
+}
+
+.dolar {
+	display: inline-block;
+	font-size: 32px;
+	left: 48px;
+	margin: 5px 0 0;
+	position: absolute;
+	top: 71px;
+}
+
+.details ul {
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none;
+}
+
+.details ul li {
+	background: url("../images/pricing/images/sep.gif") no-repeat scroll
+		center bottom transparent;
+	display: block;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	margin: 0 auto;
+	padding: 8px 10px;
+	text-align: center;
+	width: 170px;
+}
+
+.details {
+	margin: 15px 0 0 0;
+}
+
+.signup {
+	background: url("../images/pricing/images/signup.png") no-repeat scroll
+		left top transparent;
+	border: medium none;
+	display: block;
+	margin: 0 auto;
+	padding: 16px 0;
+	text-align: center;
+	width: 134px;
+	cursor: pointer;
+	border: none !important;
+	border-radius: none !important;
+	box-shadow: none !important;
+}
+
+.signup:hover {
+	background-position: 0 -52px;
+	border: none !important;
+	border-radius: none !important;
+	box-shadow: none !important;
+}
+
+.updatepkg {
+	background: url("../images/pricing/images/updatepkg.png") no-repeat scroll
+		left top transparent;
+	border: medium none;
+	display: block;
+	margin: 0 auto;
+	padding: 16px 0;
+	text-align: center;
+	width: 134px;
+	cursor: pointer;
+	border: none !important;
+	border-radius: none !important;
+	box-shadow: none !important;
+}
+
+.updatepkg:hover {
+	background-position: 0 -52px;
+	border: none !important;
+	border-radius: none !important;
+	box-shadow: none !important;
+}
+
+.signup_medium {
+	background: url("../images/pricing/images/signup_medium.png") no-repeat
+		scroll left top transparent;
+	border: medium none;
+	display: block;
+	margin: 0 auto;
+	padding: 19px 0;
+	text-align: center;
+	width: 134px;
+	cursor: pointer;
+	box-shadow: none !important;
+	border-radius: none !important;
+}
+
+.update_medium:hover {
+	background-position: 0 -51px !important;
+	border: none !important;
+	border-radius: none !important;
+	box-shadow: none !important;
+}
+
+.update_medium {
+	background: url("../images/pricing/images/updatemed.png") no-repeat
+		scroll left top transparent;
+	border: medium none;
+	display: block;
+	margin: 0 auto;
+	padding: 19px 0;
+	text-align: center;
+	width: 134px;
+	cursor: pointer;
+	box-shadow: none !important;
+	border-radius: none !important;
+}
+
+.signup_medium:hover {
+	background-position: 0 -51px !important;
+	border: none !important;
+	border-radius: none !important;
+	box-shadow: none !important;
+}
+
+.price_midium {
+	color: #1f7edf;
+	display: block;
+	font-family: Myriad Pro;
+	font-size: 60px;
+	font-weight: bold;
+	padding: 46px 0 0;
+	text-align: center;
+	margin-top: 16px;
+}
+
+.month_midium {
+	color: #1F7EDF;
+	display: block;
+	font-family: verdana;
+	font-size: 12px;
+	text-align: center;
+	width: 223px;
+}
+
+.dolar_midium {
+	display: inline-block;
+	font-size: 32px;
+	margin: 5px 0 0;
+}
+
+.details_medium ul {
+	list-style: none outside none;
+	margin: 0 0 24px -14px !important;
+	padding: 0 !important;
+}
+
+.details_medium ul li {
+	background: url("../images/pricing/images/sep.gif") no-repeat scroll
+		center bottom transparent;
+	display: block;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+	width: 170px;
+}
+
+.details_medium {
+	margin: 15px 0 0 0;
+}

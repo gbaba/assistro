@@ -9,16 +9,22 @@
     	<section id="blog-post">
         	<header>
             	<h3>Latest blog posts</h3>
-                <article>
-                	<h4>Blog post title about something</h4>
-                    <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum mollis. 
-                    <img src="/pages/images/latest-blog-bg.png"/></a>
-                </article>
-                <article>
-                	<h4>Blog post title about something</h4>
-                    <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum mollis.
-                    <img src="/pages/images/latest-blog-bg.png"/></a>
-                </article>
+               	<h:dataTable value="#{userBean.topPosts}" var="post"
+							id="postTable">
+							<h:column>
+								<article>
+										<h4>
+											<h:outputText value="#{post.blogTopic}" />
+										</h4>
+										<p:commandLink ajax="false" action="/pages/detailpost.html"
+										actionListener="#{userBean.showDetailPost}">
+										<h:outputText value="#{post.introLine}"/>
+										<f:param name="detailShow" value="#{post}" />
+										<h:graphicImage value="/pages/images/latest-blog-bg.png" />
+										</p:commandLink>
+								</article>
+							</h:column>
+						</h:dataTable>
             </header>
         </section><!-- // blog post section -->
         <section id="footer-sitemap">
@@ -60,7 +66,7 @@
             <div class="tweet"></div>
             <div class="clear"></div>
             <h5>Follow us</h5>
-            <a href="#" title="Blog"><img src="/pages/images/icons/rss.png" alt="RSS"/></a>
+            <a href="/pages/assistroblog.html" title="Blog"><img src="/pages/images/icons/rss.png" alt="RSS"/></a>
             <a href="https://www.facebook.com/assistro" title="FaceBook" onclick="return ! window.open(this.href);"><img src="/pages/images/icons/fb.png" alt="FaceBook"/></a>
             <a href="http://www.twitter.com/iamassistro" title="Twitter" onclick="return ! window.open(this.href);"><img src="/pages/images/icons/tw.png" alt="Twitter"/></a>
             <a href="http://www.linkedin.com/groups/assistro-Connect-Engage-Convert-4368826/about" title="LinkedIn" onclick="return ! window.open(this.href);"><img src="/pages/images/icons/in.png" alt="LinkedIn"/></a>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<link rel="stylesheet" type="text/css" href="/admin/css/base.css"/>
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="stylesheet" type="text/css" href="/pages/js/source/jquery.fancybox.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/pages/css/stylepopup.css" />
+
+
+
+<style>
+.ui-widget .ui-widget {
+	float: left;
+}
+	.ui-growl {
+
+}
+.ui-widget {
+	font-size: 0.8em;
+}
+</style>
+<meta charset='utf-8'/>
+<meta name="description" content="Live Chat on your website, today! Assistro is a live chat software that helps websites to increase their customer leads" />
+<meta name="keywords" content="live chat, assistro, live chat software" />
+<meta name="copyright" content="" />
+
+<script type="text/javascript" src="/admin/js/html5.js"></script>
+<script type="text/javascript" src="/js/tabCheck.js" />
+<script type="text/javascript">
+$(document).ready(function(){
+$("#live-chat-btn").click(function(){
+
+    $("#chat-app-wrapper").slideToggle("fast");
+
+  });
+
+});
+</script>
+    	
+<link href="/admin/css/select-box2.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/admin/js/jquery.selectbox-0.2.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    $("#language2").selectbox();
+});
+</script>
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<![endif]-->
+	<ui:insert name="title">Assistro | Live Chat for your Website</ui:insert>
+	<ui:insert name="head"></ui:insert>
+</h:head>
+
+<body id="ui-homepage" onload="setActive()">
+	<ui:include src="/templates/adminHeader.xhtml" />
+	<div class="clear"></div>
+	<div id="wrapper">
+		<ui:insert name="content" />
+		<div style="clear: both" />
+		<div class="footer">
+			<ui:include src="/templates/adminFooter.xhtml" />
+		</div>
+	</div>
+</body>
+</html>

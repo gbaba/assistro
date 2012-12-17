@@ -35,6 +35,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -42,6 +43,8 @@ import org.dom4j.io.SAXReader;
 import com.google.appengine.api.xmpp.JID;
 import com.google.appengine.api.xmpp.XMPPService;
 import com.google.appengine.api.xmpp.XMPPServiceFactory;
+import com.vchat.beans.Blog;
+import com.vchat.beans.BlogComment;
 import com.vchat.beans.Chat;
 import com.vchat.beans.User;
 import com.vchat.beans.WidgetAgents;
@@ -86,6 +89,15 @@ public class UserBean {
 	private String message;
 	
 	private boolean termsConditions;
+	
+	private Blog blog;
+	private String tmpVal;
+	private Blog detailPost;
+	private boolean checkComment;
+	private BlogComment blogCom;
+	private List<Blog> blogPosts;
+	private List<Blog> topPosts;
+	private List<BlogComment> blogComments;
 	///////////////////////////////// getter and setter/////////////////////////////
 
 	public String getBillingPlan() {
@@ -314,6 +326,45 @@ public class UserBean {
 		this.userChatMessages = userChatMessages;
 	}
 	
+	public List<Blog> getBlogPosts() {
+		FacesContext fCtx = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) fCtx.getExternalContext()
+				.getSession(false);
+		String blogVal = null;
+		blogVal = (String) session.getAttribute("postBlogVal");
+		if (blogVal == null) {
+			blogVal = "News";			
+		}
+		this.blogPosts = VchatController.getVchatController().getBlogPosts(blogVal);
+		return blogPosts;
+	}
+
+	public void setBlogPosts(List<Blog> blogPosts) {
+		this.blogPosts = blogPosts;
+	}
+
+	public List<Blog> getTopPosts() {
+		this.topPosts = VchatController.getVchatController().getTowTopBlogPosts();
+		return topPosts;
+	}
+
+	public void setTopPosts(List<Blog> topPosts) {
+		this.topPosts = topPosts;
+	}
+
+	public List<BlogComment> getBlogComments() {
+		FacesContext fCtx = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) fCtx.getExternalContext()
+				.getSession(false);
+		detailPost = (Blog) session.getAttribute("detailP");
+		this.blogComments = VchatController.getVchatController().getBlogComments(detailPost);
+		return blogComments;
+	}
+
+	public void setBlogComments(List<BlogComment> blogComments) {
+		this.blogComments = blogComments;
+	}
+
 	public boolean isTermsConditions() {
 		return termsConditions;
 	}
@@ -333,6 +384,65 @@ public class UserBean {
 
 	public void setOpView(WidgetAgents opView) {
 		this.opView = opView;
+	}
+	
+	public String getTmpVal() {
+		FacesContext fCtx = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) fCtx.getExternalContext()
+				.getSession(false);
+		this.tmpVal = (String) session.getAttribute("postBlogVal");
+		if (tmpVal == null) {
+			tmpVal = "News";			
+		}
+		return tmpVal;
+	}
+
+	public void setTmpVal(String tmpVal) {
+		this.tmpVal = tmpVal;
+	}
+	
+	public Blog getDetailPost() {
+		return detailPost;
+	}
+
+	public void setDetailPost(Blog detailPost) {
+		this.detailPost = detailPost;
+	}
+
+	public Blog getBlog() {
+		if (blog == null) {
+			blog = new Blog();
+		}
+		return blog;
+	}
+
+	public void setBlog(Blog blog) {
+		this.blog = blog;
+	}
+	
+	public BlogComment getBlogCom() {
+		if(blogCom ==null){
+			blogCom = new BlogComment();
+		}
+		return blogCom;
+	}
+
+	public void setBlogCom(BlogComment blogCom) {
+		this.blogCom = blogCom;
+	}
+	
+	public boolean isCheckComment() {
+		FacesContext fCtx = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) fCtx.getExternalContext()
+			.getSession(false);
+		String comName = (String) session.getAttribute("logName");
+		if(comName!=null){
+			this.checkComment = true;
+		}
+		return checkComment;
+	}
+	public void setCheckComment(boolean checkComment) {
+		this.checkComment = checkComment;
 	}
 	///////////////////////////////////////////Operations/////////////////////////////////
 
@@ -433,6 +543,7 @@ public class UserBean {
 			wc.setOfflineHeader("Live Chat: Offline");
 			wc.setOffLinePanel("Sorry we are not available, please leave a message");
 			wc.setOnlineHeader("Talking to Support");
+			wc.setProOperator("Helpdesk");
 			wc.setWidgetId(DigestUtils.md5Hex(user.getEmail()).toString());
 			VchatController.getVchatController().addWidgetContents(wc);
 			doRedirect("https://spreedly.com/assistro/subscribers/"
@@ -1033,5 +1144,74 @@ public class UserBean {
 		public void getAgentInfo(ActionEvent event) {
 			String id = event.getComponent().getId();
 		}
+		
+	//blog related method
+		public void addBlogPost() {
+			String blogId = RandomStringUtils.randomAscii(8);
+			this.blog.setBlogDate(new Date());
+			this.blog.setBlogKey(blogId);
+			if (VchatController.getVchatController().publishPost(blog)) {
+				VchatController.getVchatController().publishPost(blog);
+				this.blog = new Blog();
+				FacesContext.getCurrentInstance().addMessage(
+						null,
+						new FacesMessage(FacesMessage.SEVERITY_INFO,
+								"Post Publish:",
+								"Your post published successfully...!"));
+			} 
+		 }
+		
+		// get post info for blog
+		public void getPostInfo(ActionEvent event) {
+			String id = event.getComponent().getId();
+
+				FacesContext fCtx = FacesContext.getCurrentInstance();
+				HttpSession session = (HttpSession) fCtx.getExternalContext()
+						.getSession(false);
+				session.setAttribute("postBlogVal", id);
+		}
+		
+		// get the detail post
+		public void showDetailPost(final ActionEvent actionEvent) {
+			detailPost = this.getEventParameter(actionEvent, "detailShow");
+			FacesContext fCtx = FacesContext.getCurrentInstance();
+			HttpSession session = (HttpSession) fCtx.getExternalContext()
+					.getSession(false);
+			session.setAttribute("detailP", detailPost);
+		}
+		
+
+		public void addBlogComment() {
+				FacesContext fCtx = FacesContext.getCurrentInstance();
+				HttpSession session = (HttpSession) fCtx.getExternalContext()
+					.getSession(false);				
+				if(!this.checkComment){
+					session.setAttribute("logName", this.blogCom.getComUsrName());
+					session.setAttribute("logEmail", this.blogCom.getComUsrEmail());
+				}				
+				detailPost = (Blog) session.getAttribute("detailP");
+				if(loggedInUser != null){
+					System.out.println("Logged in user"+loggedInUser.getFullName());
+					this.blogCom.setComUsrName(loggedInUser.getFullName());
+					this.blogCom.setComUsrEmail(loggedInUser.getEmail());
+				}
+							
+				if(this.checkComment){
+					String comName = (String) session.getAttribute("logName");
+					String comEmail = (String) session.getAttribute("logEmail");
+					System.out.println("Logged in"+ comName);		
+					this.blogCom.setComUsrName(comName);
+					this.blogCom.setComUsrEmail(comEmail);
+				}
+				this.blogCom.setComDate(new Date());
+				this.blogCom.setBlogKeyVal(detailPost.getBlogKey());
+				VchatController.getVchatController().enterComment(blogCom);
+				this.blogCom = new BlogComment();
+				FacesContext.getCurrentInstance().addMessage(
+						null,
+						new FacesMessage(FacesMessage.SEVERITY_INFO,
+								"Comment:",
+								"successfully...!"));
+		 }
 	
 }

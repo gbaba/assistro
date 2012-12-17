@@ -114,6 +114,15 @@
 						<p:commandLink action="#{userBean.changePlanInfo}">Change
 				Account and Plan Info</p:commandLink>
 					</p>
+					<h:panelGroup id="myCom"
+						rendered="#{userBean.loggedInUser.email=='customerservice@assistro.com'?'true':'false'}">
+						<p class="dashboard-actions">
+						<img src="/admin/images/icons/edit.jpg" />
+						<a href="/admin/postBlog.html"
+							onclick="return ! window.open(this.href);">Post on Blog
+						</a>
+					</p>
+						</h:panelGroup>
 					<p class="dashboard-actions_promo">
 						<p:commandLink id="Promotion_Medium" value="Add Promotion User"
 							style="color: #0A8EFF !important;" onclick="addUserDlg.show()"

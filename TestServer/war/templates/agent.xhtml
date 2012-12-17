@@ -1,0 +1,60 @@
+<h:form id="agentForm" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:panelGrid id="agentPopUp" rendered="true">			
+		<p:dialog widgetVar="agentDlg" resizable="false" showHeader="false"
+			width="488" modal="true">
+			<div id="top-header-popup">
+				<h1>Agent</h1>
+				<p>Add your agent!</p>
+				<p:commandLink onclick="agentDlg.hide()"><div title="Close" class="fancybox-item fancybox-close"></div></p:commandLink>
+			</div>
+
+
+			<div class="clear"></div>
+			<div id="shadow">
+				<img src="/pages/images/smallshadow.png" />
+			</div>
+			<div class="claer"></div>
+			<div id="popup-content">
+				<h2>Sign in using your agent account</h2>
+				<img src="/pages/images/popupshadow.jpg" /> 
+				<p:growl id="growl" showDetail="true" life="3000" />
+				
+				<label class="mylab">Name:</label>
+				<h:inputText id="agname" value="#{userBean.operator.agentName}"
+					title="Enter Agent Name" rendered="true"
+					required="true" styleClass="name-input"
+				/>
+				<br/><br/>
+				<div>
+				<label class="mylab">Email:</label>
+				<h:inputText styleClass="name-input" id="agemail"
+						value="#{userBean.operator.agentId}" required="true"
+						validator="#{userBean.emailValidator}" title="Please enter a valid gmail id">
+						<p:ajax event="blur" update="msg" />
+					</h:inputText>
+				<p:message id="msg" for="agemail"/>	
+				</div>	
+				<br/><br/>
+				
+				<label class="mylab">Set Priority</label>	
+				<h:selectOneMenu style="margin-left:23px;" id="language2" value="#{userBean.operator.agentpriority}">
+				<f:selectItems value ="#{userBean.updatePriority}"/>
+				</h:selectOneMenu>
+
+				<div class="claer"></div>
+				<br /> 
+
+					<p:commandLink id="addAg" value="Add Agent"
+				action="#{userBean.addAgent}" oncomplete="agentDlg.hide()"
+				styleClass="add-ag-popup" update=":agentUp:agentTable :agentUp:adMes :growl" ajax="false" />	
+					</div>	
+					
+		</p:dialog>
+	</h:panelGrid>
+</h:form>
+
+

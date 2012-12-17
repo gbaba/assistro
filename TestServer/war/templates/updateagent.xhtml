@@ -1,0 +1,54 @@
+<h:form id="updateAgentForm" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:panelGrid id="UpdateAgentPopUp" rendered="true">
+		<p:dialog widgetVar="updateAgentDlg" resizable="false"
+			showHeader="false" width="488" modal="true">
+
+			<div id="top-header-popup">
+				<h1>Agent</h1>
+				<p>Update agent values!</p>
+				<p:commandLink onclick="updateAgentDlg.hide()">
+					<div title="Close" class="fancybox-item fancybox-close"></div>
+				</p:commandLink>
+			</div>
+
+
+			<div class="clear"></div>
+			<div id="shadow">
+				<img src="/pages/images/smallshadow.png" />
+			</div>
+			<div class="claer"></div>
+			<div id="popup-content">
+				<h2>Change the values if required.</h2>
+				<img src="/pages/images/popupshadow.jpg" /> <label class="mylab">Name:</label>
+				<h:inputText id="uagname" value="#{userBean.operator.agentName}"
+					title="Edit Agent Name" rendered="true" styleClass="name-input" />
+				<br />
+				<br />
+				<div>
+					<label class="mylab">Email:</label>
+					<h:inputText styleClass="name-input" id="uagemail"
+						value="#{userBean.operator.agentId}"
+						validator="#{userBean.emailValidator}" title="Edit email" />
+				</div>
+				<br />
+				<br /> <label class="mylab">Set Priority</label>
+				<h:selectOneMenu style="margin-left:23px;" id="uagPri"
+					value="#{userBean.operator.agentpriority}">
+					<f:selectItems value="#{userBean.agentPriority}" />
+				</h:selectOneMenu>
+
+				<div class="claer"></div>
+				<br />
+				<p:commandLink id="uaddAg" value="Update Agent"
+					action="#{userBean.updateAgent}" oncomplete="updateAgentDlg.hide()"
+					styleClass="update-ag-popup" update=":header:agentTable" ajax="false" />
+			</div>
+		</p:dialog>
+	</h:panelGrid>
+</h:form>
+
+

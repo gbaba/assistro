@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/MainLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | FAQs</title>
+	</ui:define>
+	<ui:define name="head">
+	<script type="text/javascript" src="js/ddaccordion.js"></script>
+<script type="text/javascript">
+//Initialize 2nd demo:
+ddaccordion.init({
+  headerclass: "technology", //Shared CSS class name of headers group
+  contentclass: "thelanguage", //Shared CSS class name of contents group
+  revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+  mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+  collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+  defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content.
+  onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+  animatedefault: false, //Should contents open by default be animated into view?
+  persiststate: false, //persist state of opened contents within browser session?
+  toggleclass: ["closedlanguage", "openlanguage"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+  togglehtml: ["prefix", "",""],
+  //"<img src='images/arrow-close2.png' style='width:15px; height:9px;position:relative;left:855px;top:3px;' /> ",
+  //"<img src='images/arrow-close.png' style='width:15px; height:9px;position:relative;left:855px;top:3px;' /> "], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+ //animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+  oninit:function(expandedindices){ //custom code to run when headers have initalized
+    //do nothing
+  },
+  onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+    //do nothing
+  }
+})
+
+</script> 
+	</ui:define>
+	<ui:define name="content">
+	<h:form>
+		<section id="inner-page-header"> <img
+			src="images/mascot4.png" class="mascot2"/> <hgroup>
+			<h1>FAQ</h1>
+			<h2>Read some of the most asked questions</h2>
+			</hgroup> 			
+			<p:commandLink onclick="signupDlg.show()"
+							rendered="#{userBean.loggedInUser.active==true?'false':'true'}"
+							styleClass="get-started-now-btn-small">
+			</p:commandLink>
+			<div class="clear"></div></section></h:form>
+		<!-- // inner page header -->
+
+		<section id="help-area"> <a href="/pages/contact.html"
+			title="Need help? Contact us!">Need help? Contact us!</a>
+		<div class="clear"></div>
+		</section>
+		<!-- // help area -->
+
+		<section id="inner-page-content">
+
+
+		<div id="faq">
+			<div class="technology" id="about">What is Assistro?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+					Installation is very simple! After signing up you will be given
+					access to the assistro dashboard so you can customize your chat
+					window. You will then be given a code to copy/paste onto your
+					website. That’s it! Installation takes around 30 seconds, and you
+					don’t need any coding or technical experience at all. <br> </br>
+
+							For further assistance, please see our <a href="/pages/guide.html" onclick="return ! window.open(this.href);">Installation Guide</a> 
+				</p>
+				</section>
+			</div>
+
+
+			<div class="technology" id="about">How does Assistro work?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+					Assistro is <B>live chat</B> software that enables website owners to
+				engage with their website visitors in <B>real time</B>. After
+				installing our code on your site, assistro will begin working
+				immediately. When a customer comes to your website, the
+				assistro chat window will automatically appear after 10 seconds
+				inviting them to engage with you. If your customers have questions, they
+				can respond to the <b>proactive</b> chat message and that will initiate a
+				live chat session with one of your operators.<br/><br/>As your customer browses through
+				your website the chat message will appear on each page so they can
+				continue to chat with the operator and receive assistance as
+				required.
+				</p>
+				</section>
+			</div>
+
+			<div class="technology" id="about">So why choose Assistro and not any other real-time live chat?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				There are other chat programs
+				out there – but we are confident that assistro offers you the best
+				features and the best price. Many of our competitors’ software
+				doesn’t work on iPads or iPhones, and doesn’t allow for proactive
+				messaging to your web visitors. When building assistro, we looked at
+				all the options available and chose the best features from each to
+				make our software. Best of all, our pricing is 30%-70% cheaper!
+				</p>
+				</section>
+			</div>
+
+			<div class="technology" id="about">How do I install assistro?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Installation is very simple!
+				After signing up, you will be given access to the assistro dashboard
+				so you can customize your chat window. You will then be given a code
+				to copy/paste onto your website. That’s it! Installation takes
+				around 30 seconds, and you don’t need any coding or technical
+				experience at all. 
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">What do my visitors need to for them to use Assistro?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+					Absolutely nothing! Well, a
+				modern web browser does help (modern browsers are JavaScript
+				enabled) but other than that they just need to visit your site and
+				experience the awesomeness of your customer service now that you
+				have assistro on your team.
+				</p>
+				</section>
+			</div>
+
+			<div class="technology" id="about">Does Assistro support my language characters set?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				The answer is YES. Assistro
+				enables you to chat with your visitors/customers using any UTF-8
+				characters<br></br>Currently, the assistro site is
+				only available in English, however once installed, there is no
+				limitation on which language characters you can use to chat with your
+				web visitors.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">What instant messenger software should I use with Assistro?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				One of assistro’s strengths is that we operate through <A HREF="http://www.google.com/talk" onclick="return ! window.open(this.href);">Google Talk</A>.
+				Many of our customers simply use the Google Talk chat widgets, but
+				we prefer to use messenger programs such as <A
+					HREF="http://www.ebuddy.com" onclick="return ! window.open(this.href);">eBuddy</A> or
+				<A HREF="http://www.pidgin.im" onclick="return ! window.open(this.href);">Pidgin</A> – especially
+				useful if you have assistro installed on multiple sites.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">I thought Assistro is automatic but why when I visit the
+					Website it does not automatically pop up?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Perhaps the agents are offline.
+				When it is on Offline Mode, it will not open unless it is clicked.
+				Otherwise, it automatically pops up after ten (10) seconds.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">What if I want to close the chat window?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Assistro’s chat window pops up
+				after ten (10) seconds of someone being on the site. Your visitors
+				have the option to respond, ignore, minimize or close it. Assistro
+				no longer prompts those who have already closed the chat box on your
+				Website.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">Can I put Assistro on more than one (1) Website?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Absolutely! You can copy/paste
+				your assistro code on to as many web sites as you like. You're only
+				limited by how many chat request you can handle at one time.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">I can’t be in the office all the time, what happens when I’m
+					mobile?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				We get asked this question a
+				lot. One of the biggest advantages of using assistro is the ability
+				to chat with web visitors from your smartphone or tablet device.
+				Simply visit the appstore or Android store and download one of the
+				many Google Talk apps (we recommend eBuddy or Pidgin) and you can
+				then send and receive chat messages while on the go!
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">I can’t be online all the time, what happens when I’m
+					offline?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				When all your operators are
+				offline, assistro is offline. The offline mode will display the
+				assistro widget in a minimized window on your website. Your web
+				visitors can still choose to send you an email via assistro when you
+				are offline so that you do not miss out on any potential enquiries.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">What browser should I and my visitors use with Assistro?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Good news is Assistro is
+				compatible with all common browsers. You can use Microsoft Internet
+				Explorer, Mozilla Firefox, Apple Safari, Google Chrome and Opera and
+				all their respective newer versions.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">Can I use Assistro on handheld phones?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				One major benefit of Assistro is
+				that you can use it even if you are not in the office. You can chat
+				with your website visitors via your mobile phone. We are using
+				Assistro on iPhone and Android. You just need to download an
+				application from iTunes or from the Android Store. We recommend
+				eBuddy or Pidgin, or Google’s own Gtalk! App.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">How am I going to be billed?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				You will be billed on a monthly
+				cycle. There will be no contracts, you can cancel anytime.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">What are the payment methods?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				We accept all major debit/credit
+				cards (Visa, Mastercard, American Express and Discover). We are also
+				looking into additional payment methods like PayPal and more coming
+				soon.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">Is FLYING SOLO package really free?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Yes! We understand what it’s
+				like to own and operate a small business, that’s why we have created
+				a free version for micro businesses to take advantage of. Our
+				“flying solo” package is limited to one operator and 10
+				conversations per month.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">What if I want to upgrade my plan?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Of course you can upgrade
+				anytime. Just <a href="/dashboard.html">sign in</a> to your dashboard and select the plan that
+				best suits your growing needs.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">I need a customized plan. Can you help?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Absolutely! To discuss the plan that you require, please feel free
+				to contact us at <a href="mailto:customerservice@assistro.com">customerservice@assistro.com</a>
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">How can I get a receipt for my payments?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				Invoices are automatically sent
+				via email. Since it’s a 30-day contract, it is renewed automatically
+				therefore billed every month. You can cancel anytime.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">I cannot decide what package is best for me, how can I choose
+					the right one?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				All packages (except for Flying
+				Solo which is free) include 15-day trial. Thus signing up or testing
+				the right one for you is risk free. Likewise, if you cancel before
+				the first fifteen (15) days, you will not be charged.
+				</p>
+				</section>
+			</div>
+			
+			<div class="technology" id="about">What should I do if I decide to cancel my subscription?</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				We do not have ongoing
+				contracts, so you can cancel your subscription at any time.
+				<br></br>
+				To cancel – please <a href="/welcome.html">sign in</a> and
+				visit your dashboard, there you will see the “click here to
+				unsubscribe” link.
+				</p>
+				</section>
+			</div>
+			
+				<div class="technology" id="about">I have additional questions or comments..</div>
+			<div class="clear"></div>
+			<div class="thelanguage">
+				<section class="answer">
+				<p>
+				We would love to hear from you! Please email us at <A
+					HREF="mailto:customerservice@assistro.com">customerservice@assistro.com</A>
+				and one of our friendly team members will respond within 12 hours.
+				</p>
+				</section>
+			</div>
+			<!-- accordion menu -->
+
+			<div class="clear"></div>
+			<!-- end of menu -->
+		</div>
+
+
+
+		<div class="clear"></div>
+		</section>
+		<!-- // inner page content -->
+
+		<div id="homepage-content-bottom"></div>
+
+		<section id="take-a-tour"> <header id="take-a-tour-header">
+		<h1>Assistro is all-in-one live chat software solution</h1>
+		<h2>Connect with your web visitors, engage them in conversation, convert them in to leads or sales.</h2>
+		</header><!-- // header of take a tour --> <a href="/pages/features.html" class="take-a-tour-btn"
+			title="Take a Tour">Take a Tour</a> </section>
+		<!-- // take a tour -->
+	</ui:define>
+</ui:composition>
+</html>

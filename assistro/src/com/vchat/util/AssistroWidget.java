@@ -125,7 +125,7 @@ public class AssistroWidget {
 
 	public String getData() {
 		String data = "function createWidget(){"
-				+ "var  widget_jquery,s12,widgetjs;var widget_css,help_me,img,imgUrl,beforelink,bigimg,bigimgUrl,agentName,clear,jheader,agentImage,agentName,agentDes,webLink,inLink;var divTag,supmsg,before_chat_header_text,before_chat_collapsed,before_collapsed_header,before_chat_content,before_chat_header,before_chat_footer,before_name,before_email,collapsed,username,usernamelabel,expanded,welMes,host_name,minimizeBut,crossBut,header,buttons, content, footer,message_panel,chat_area,send_button,before_chat,user_email,user_question,message_label,chat_but;var myhead;"
+				+ "var  widget_jquery,s12,widgetjs;var widget_css,help_me,img,imgUrl,beforelink,bigimg,bigimgUrl,chatDiv,optName,agentName,clear,newMsgDiv,msgCou,colWrapper,jheader,agentImage,agentName,agentDes,webLink,inLink;var divTag,supmsg,before_chat_header_text,before_chat_collapsed,before_collapsed_header,before_chat_content,before_chat_header,before_chat_footer,before_name,before_email,collapsed,username,usernamelabel,expanded,welMes,host_name,minimizeBut,crossBut,header,buttons, content, footer,message_panel,chat_area,send_button,before_chat,user_email,user_question,message_label,chat_but;var myhead;"
 					
 				+ "widget_jquery = document.createElement('script');"
 				+ "widgetjs = document.createElement('script');"
@@ -162,26 +162,6 @@ public class AssistroWidget {
 				//+ "imgUrl.src='img';"	
 				+ "imgUrl.setAttribute ('width','42');"
 				+ "imgUrl.setAttribute ('height','42');"
-				//+ "imgUrl.setAttribute ('style','border:2px double #CCCCCC');"
-//				+ "img.appendChild(agentName);"
-				//+ "img.appendChild(imgUrl);"
-				
-//				//highlight image
-//				+ "bigimg = document.createElement('div');"
-//				+ "bigimg.id = 'showImg';"	
-//				+ "bigimg.setAttribute ('style','display:none');"
-//				
-//				+ "agentName = document.createElement('p');"
-//				+ "agentName.innerHTML='Agent_Name';"
-//				
-//				+ "bigimgUrl = document.createElement('img');"
-//				+ "bigimgUrl.src='Agent';"	
-//				+ "bigimgUrl.setAttribute ('width','110');"
-//				+ "bigimgUrl.setAttribute ('height','80');"
-//				+ "bigimgUrl.setAttribute ('style','border:2px double #CCCCCC');"
-//				
-//				+ "bigimg.appendChild(agentName);"
-//				+ "bigimg.appendChild(bigimgUrl);"
 
 				// before chat widget
 				+ "before_chat = document.createElement('div');"
@@ -363,16 +343,24 @@ public class AssistroWidget {
 				+ "welMes = document.createElement('p');"
 				+ "welMes.innerHTML = 'Welcome_To_Assistro';"
 				+ "welMes.className = 'top_label';"
-
-				+ "host_name = document.createElement('p');"
-				+ "host_name.className = 'host_name';"
 				
+				+ "chatDiv = document.createElement('div');"
+
+				+ "host_name = document.createElement('span');"
+				+ "host_name.className = 'chatMessage';"
+				
+				+ "optName = document.createElement('strong');"
+				+ "optName.className = 'visitor';"
+				+ "optName.innerHTML = 'HelpDesk: ';"
+
 				+ "message_panel = document.createElement('div');"
 				+ "message_panel.className = 'content';"
 				+ "message_panel.id = 'content_1';"
 				+ "host_name.innerHTML = 'Welcome_To_Customer_Help';"
+				+ "chatDiv.appendChild(optName);"
+				+ "chatDiv.appendChild(host_name);"
 				//+ "img.appendChild(welMes);"
-				+ "message_panel.appendChild(host_name);"				
+				+ "message_panel.appendChild(chatDiv);"				
 				
 				//+ "content.appendChild(img);"
 				+ "content.appendChild(welMes);"
@@ -385,6 +373,19 @@ public class AssistroWidget {
 				+ "expanded.appendChild(webLink);"
 				
 				//Online collaspsed state
+				
+				+ "colWrapper = document.createElement('div');"
+				+ "colWrapper.id = 'col_wrap';"
+				+ "colWrapper.setAttribute ('style','display:block');"
+				
+				
+				+ "newMsgDiv = document.createElement('div');"
+				+ "newMsgDiv.id = 'new_msg';"
+				+ "newMsgDiv.setAttribute ('style','display:none');"
+				
+				+ "msgCou = document.createElement('p');"
+				+ "msgCou.id = 'msg_counter';"	
+				+ "newMsgDiv.appendChild(msgCou);"
 
 				+ "collapsed = document.createElement('div');"
 				+ "collapsed.id = 'live-chat-btn';"
@@ -394,6 +395,9 @@ public class AssistroWidget {
 				+ "myhead.innerHTML='Live_Chat';"
 							
 				+ "collapsed.appendChild(myhead);"
+				
+				+ "colWrapper.appendChild(newMsgDiv);"
+				+ "colWrapper.appendChild(collapsed);"
 				
 								
 				//before Chat Collpased State
@@ -417,7 +421,7 @@ public class AssistroWidget {
 				+ "before_chat_collapsed.appendChild(before_collapsed_header);"
 				
 				+ "divTag.appendChild(before_chat_collapsed);"
-				+ "divTag.appendChild(collapsed);"
+				+ "divTag.appendChild(colWrapper);"
 				+ "divTag.appendChild(expanded);"		
 				+ "divTag.appendChild(before_chat);"
 

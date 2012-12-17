@@ -148,7 +148,13 @@ public class WidgetContents implements Serializable{
 		this.widgetStyle = widgetStyle;
 	}
 
+	public String getProOperator() {
+		return proOperator;
+	}
 
+	public void setProOperator(String proOperator) {
+		this.proOperator = proOperator;
+	}
 
 
 
@@ -182,6 +188,8 @@ public class WidgetContents implements Serializable{
 	private String offlineEmailAdmin;
 	@Column(name = "widget_style", nullable = true)
 	private String widgetStyle;
+	@Column(name = "pro_opt", nullable = true)
+	private String proOperator;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Key key;

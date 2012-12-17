@@ -11,7 +11,7 @@ Quote of the Day: And no, we don't know where it will lead. We just know there's
 01. Homepage styling content
 ---------------------------------------------
 */
-section#homepage-fzeatures {
+section#homepage-features {
 	width: 959px;
 	height: 177px;
 	background: url(../images/features-bg.png);
@@ -86,8 +86,7 @@ article#feature-1 {
 	padding-right: 35px;
 	background: url(../images/icons/features-1.png);
 	background-repeat: no-repeat;
-	background-position:left top;
-	margin-left: 196px;
+	background-position: left top;
 }
 
 section#homepage-features h2 {
@@ -112,7 +111,7 @@ article#feature-2 {
 	padding-right: 35px;
 	background: url(../images/icons/features-2.png);
 	background-repeat: no-repeat;
-	background-position: ;
+	background-position:;
 	left
 	top;
 }
@@ -124,7 +123,7 @@ article#feature-3 {
 	padding-right: 35px;
 	background: url(../images/icons/features-3.png);
 	background-repeat: no-repeat;
-	background-position: ;
+	background-position:;
 	left
 	top;
 }
@@ -295,6 +294,48 @@ section#blog-page-left img {
 	padding: 3px;
 }
 
+article#commentBody {
+	background: #F6F6F6;
+	border: 1px solid #DDD;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin: 0 110px 1.625em;
+	padding: 1.625em;
+	position: relative;
+	width: 77.9%;
+}
+
+article#commentBody::before {
+	content: url(/pages/images/comment-arrow.png);
+	left: -21px;
+	position: absolute;
+}
+
+.comImg {
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 2px 2px 2px #CCC;
+	-moz-box-shadow: 2px 2px 2px #ccc;
+	box-shadow: 2px 2px 2px #CCC;
+	border: 1px solid #C4C4C4;
+	padding: 0;
+	position: absolute;
+	height: 50px;
+}
+
+.comName {
+	position: absolute;
+	margin-left: 16px;
+	font-size: 16px;
+	color: #696869;
+}
+
+.artSpan {
+	color: #666666;
+	font-family: 'PTSansRegular';
+	font-size: 14px
+}
+
 .read-more-btn-2 {
 	display: block;
 	width: 66px;
@@ -347,7 +388,6 @@ aside#blog-sidebar ul li a:hover,.active-category {
 	background-repeat: no-repeat !important;
 	padding-left: 30px !important;
 }
-
 
 article.testimonial-box {
 	width: 450px;
@@ -568,7 +608,7 @@ aside#contact-right h3 {
 
 .social-icons2  img:hover {
 	opacity: .7;
-	filter: alpha(opacity = 70);
+	filter: alpha(opacity =   70);
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
 }
 
@@ -908,25 +948,24 @@ section.big-package header {
 	content: '?';
 }
 
-.moreInfoCont {
-/* position: absolute; */
-background: white;
--webkit-box-shadow: 0 0 0 5px #EBEBEB;
--moz-box-shadow: 0 0 0 5px #ebebeb;
-box-shadow: 0 0 0 5px #EBEBEB;
-text-align: left;
-width: 200px;
-left: 40px;
-border: 1px solid #BBB;
-border-radius: 10px;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-padding: 10px;
-font-family: "Open Sans",Verdana,Geneva,sans-serif;
-font-weight: 400;
-font-style: normal;
-font-size: 13px;
-color: #333;
+.moreInfoCont { /* position: absolute; */
+	background: white;
+	-webkit-box-shadow: 0 0 0 5px #EBEBEB;
+	-moz-box-shadow: 0 0 0 5px #ebebeb;
+	box-shadow: 0 0 0 5px #EBEBEB;
+	text-align: left;
+	width: 200px;
+	left: 40px;
+	border: 1px solid #BBB;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding: 10px;
+	font-family: "Open Sans", Verdana, Geneva, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 13px;
+	color: #333;
 }
 
 .preNote {

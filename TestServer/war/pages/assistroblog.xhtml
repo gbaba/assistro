@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/MainLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Blog</title>
+	</ui:define>
+	<ui:define name="head">
+		<script type="text/javascript">
+			function setActive(id){
+				document.getElementById.className = 'active-category';
+			}
+		</script>
+	</ui:define>
+
+	<ui:define name="content">
+		<section id="inner-page-header">
+			<img src="images/mascot2.png" class="mascot2" />
+			<hgroup>
+				<h1>Blog</h1>
+				<h2>assistro blog for you.</h2>
+			</hgroup>
+			<a href="#" class="get-started-now-btn-small" title="Get Started Now">Get
+				Started Now</a>
+			<div class="clear"></div>
+		</section>
+		<!-- // inner page header -->
+		<section id="help-area">
+			<a href="#" title="Need help? Contact us!">Need help? Contact us!</a>
+			<div class="clear"></div>
+		</section>
+		<!-- // help area -->
+
+		<section id="inner-page-content">
+		<h:form>
+			<p:panel id="blog_panel">
+			<section id="blog-page-left">
+			<h:dataTable value="#{userBean.blogPosts}" var="post" id="postTable">
+				<h:column>
+				<article>
+					<header>
+						<h3><h:outputText value="#{post.blogTopic}"/></h3>
+					</header>
+					<img src="images/image-tmp.jpg"/>
+					<p><h:outputText value="#{post.blogBody}"/></p>
+					<!-- <a href="#" class="read-more-btn-2" title="Read More">more</a> -->
+					<p:commandLink value="Chat" ajax="false" styleClass="read-more-btn-2"
+					action="/pages/detailpost.html"
+					actionListener="#{userBean.showDetailPost}">
+					<f:param name="detailShow" value="#{post}" />
+					</p:commandLink>
+				</article>
+				</h:column>
+			</h:dataTable>			
+			</section>
+			
+			<!-- // left side of blog page -->
+			<aside id="blog-sidebar">				
+				<nav>
+					<ul>
+						<li><p:commandLink id="News" value="News" actionListener="#{userBean.getPostInfo}" styleClass = "#{userBean.tmpVal=='News' ? 'active-category' : ''}" update="blog_panel"/></li>
+						<li><p:commandLink id="Features" value="Features" actionListener="#{userBean.getPostInfo}" update="blog_panel" styleClass = "#{userBean.tmpVal=='Features' ? 'active-category' : ''}"/></li>
+						<li><p:commandLink id="Tips" value="Tips" actionListener="#{userBean.getPostInfo}" update="blog_panel" styleClass = "#{userBean.tmpVal=='Tips' ? 'active-category' : ''}"/></li>
+						<li><p:commandLink id="Miscellaneous" value="Miscellaneous" actionListener="#{userBean.getPostInfo}" update="blog_panel" styleClass = "#{userBean.tmpVal=='Miscellaneous' ? 'active-category' : ''}"/></li>
+					</ul>
+				</nav>
+							
+			</aside>
+			</p:panel>
+			<!-- // sidebar of blog -->
+			<div class="clear"></div>
+			</h:form>
+		</section>
+		<!-- // inner page content -->
+		<div id="ui-content-bottom"></div>
+	</ui:define>
+</ui:composition>
+</html>

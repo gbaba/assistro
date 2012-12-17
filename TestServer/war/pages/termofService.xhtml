@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/MainLayout.xhtml">
+<ui:define name="title"><title>Assistro | Terms of Service</title></ui:define>
+	<ui:define name="content">
+			<section id="inner-page-header"><hgroup>
+			<h1>Terms of Service</h1>
+			<h2>Please read our terms of Service.</h2>
+			</hgroup>
+			<div class="clear"></div></section>
+			
+		<section id="inner-page-content">
+		<div style=" width:90%;margin-left:3%; margin-right:7%;">
+		<iframe src="/docx/serviceTerms.html" align="middle" height="400px" width="910px"/>
+		</div>
+		</section>	
+</ui:define>
+</ui:composition>
+</html>

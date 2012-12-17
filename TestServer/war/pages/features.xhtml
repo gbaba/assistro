@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/MainLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Features</title>
+	</ui:define>
+	<ui:define name="head">
+	<link rel="stylesheet" type="text/css" href="css/tabs2.css"/>
+	</ui:define>
+	<ui:define name="content">
+		<section id="inner-page-header"> <h:form><img
+			src="images/mascot3.png" class="mascot2"/> <hgroup>
+			<h1>Features</h1>
+			<h2>Check out what makes assistro the BEST live chat software <br/>in the market!</h2>
+			</hgroup> 
+						
+				<p:commandLink onclick="signupDlg.show()"
+							rendered="#{userBean.loggedInUser.active==true?'false':'true'}"
+							styleClass="get-started-now-btn-small">
+						</p:commandLink></h:form>
+			<div class="clear"></div></section>
+		<!-- // inner page header -->
+
+		<section id="help-area"> <a href="/pages/contact.html"
+			title="Need help? Contact us!">Need help? Contact us!</a>
+		<div class="clear"></div>
+		</section>
+		<!-- // help area -->
+
+		<section id="inner-page-content"> <aside id="features-menu">
+		<div class="fade" style="position: relative;">
+			<img src="images/left-menu-img.png"
+				style="position: absolute; left: 285px; top: 30px;"/>
+				<ul class="tabs">
+					<li><a href="#item1"><img src="images/icons/item1.png"/>Easy
+								Install</a></li>
+					<li><a href="#item2"><img src="images/icons/item2.png"/>ProActive
+								Chat</a></li>
+					<li><a href="#item3"><img src="images/icons/item3.png"/>Graphical
+								Reports</a></li>
+					<li><a href="#item4"><img src="images/icons/item4.png"/>Google
+								Talk Integration</a></li>
+					<li><a href="#item5"><img src="images/icons/item5.png"/>Message
+								Customization</a></li>
+					<li><a href="#item6"><img src="images/icons/item6.png"/>Offline
+								Form</a></li>
+					<li><a href="#item7"><img src="images/icons/item7.png"/>Beautiful
+								Interface</a></li>
+					<li><a href="#item8"><img src="images/icons/item8.png"/>Chat
+								on the Go</a></li>
+					<li><a href="#item9"><img src="images/icons/item9.png"/>Visitor
+								Information</a></li>
+				</ul>
+
+				<div class="items">
+					<div id="item1">
+						<section class="feature-info-2">
+						<h1>Fast and simple installation</h1>
+						<p>Installing assistro is as simple as pasting the code onto your website. Get set up and chatting within 30 seconds!</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/easyinstall.png" class="image-center"/>
+					</div>
+					<!-- // feature 1 -->
+					<div id="item2"><section class="feature-info-2">
+						<h1>Meet and Greet every website visitor</h1>
+						<p>Connect with your website visitors and convert them into customers</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/proactive.png" class="image-center"/></div>
+					<div id="item3"><section class="feature-info-2">
+						<h1>Real Time Analytics</h1>
+						<p>Get real time statistics on your web visitors including their IP Address, browser, and referring website.</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/graphicalreports.png" class="image-center"/></div>
+					<div id="item4"><section class="feature-info-2">
+						<h1>The convenience of Google Talk</h1>
+						<p>Receive messages from your website through Google Talk or download the free Gtalk apps on your phone.</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/gtalk.png" class="image-center"/></div>
+					<div id="item5"><section class="feature-info-2">
+						<h1>Make it yours</h1>
+						<p>Customize your chat window to best suit your target market</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/messagecustomization.png" class="image-center"/></div>
+					<div id="item6"><section class="feature-info-2">
+						<h1>Never miss out on leads</h1>
+						<p>Capture leads through assistro even when you’re not online with our offline enquiry form.</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/graphicalreports.png" class="image-center"/></div>
+					<div id="item7">
+						<section class="feature-info-2">
+						<h1>Amazing Designs</h1>
+						<p>Choose from our beautiful designs to best suit your website</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/beatifulinterface.png" class="image-center"/>
+					</div>
+					<!-- // feature 1 -->
+					<div id="item8">
+						<section class="feature-info-2">
+						<h1>Chat on the Go</h1>
+						<p>Respond to questions and enquiries from your website even
+							when you’re not in the office!</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/chatonthego.png" class="image-center"/>
+					</div>
+					<!-- // feature 1 -->
+					<div id="item9">
+						<section class="feature-info-2">
+						<h1>Chat on the go</h1>
+						<p>Respond to questions and enquiries from your website even
+							when you’re not in the office!</p>
+						<h3>Available for</h3>
+						<img src="images/icons/appstore.png" alt="App Store"
+							class="store-img"/> <img src="images/icons/android.png"
+							alt="Android" class="store-img"/> <img
+								src="images/icons/bb.png" alt="BlackBerry" class="store-img"/></section>
+						<img src="images/featured-image-1.png" class="image-center"/>
+					</div>
+					<!-- // feature 1 -->
+				</div>
+				<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		<script type="text/javascript" src="js/jquery.idTabs2.js"></script> <script
+			type="text/javascript">
+			var fade = function(id, s) {
+				s.tabs.removeClass(s.selected);
+				s.tab(id).addClass(s.selected);
+				s.items.fadeOut();
+				s.item(id).fadeIn();
+				return false;
+			};
+			$.fn.fadeTabs = $.idTabs.extend(fade);
+			$(".fade").fadeTabs();
+		</script> </aside><!-- features menu -->
+		<div class="clear"></div>
+		<img src="images/seen-enough.jpg" class="seen-enough"/> 
+		
+			<h:form>
+				<p:commandLink onclick="signupDlg.show()"
+							rendered="#{userBean.loggedInUser.active==true?'false':'true'}"
+							styleClass="get-started-now-btn-2">
+						</p:commandLink></h:form>
+<!-- 		<a
+			href="#" class="get-started-now-btn-2" title="Get Started Now">get
+				started now</a> -->
+			<div class="clear"></div> <img src="images/soft-shadow.jpg"/> <section
+					id="testimonials"> <header>
+				<h2>What our clients says</h2>
+				</header> <!-- begin of slider -->
+				<ul id="slider1">
+					<li>
+						<div class="testimonial">
+							<p>Having assistro Live Chat on our Webpage gives us and the
+								customer a extra way of communicating. Not only do we answer
+								their questio our website, it gives us the opportunity to gain
+								trust and then close the sale. We love it!</p>
+						</div>
+						<!-- // end of testimonial box --> <img
+						src="images/testimonial-bottom.png" class="testimonial-bottom"/>
+							<span class="author"><strong>Clint Marsden,</strong>
+								Marsden Vox </span>
+							<div class="clear"></div>
+					</li>
+					<li>
+						<div class="testimonial">
+							<p>Having assistro Live Chat on our Webpite, it gives us the
+								opportunity to gain trust and then close the sale. We love it!</p>
+						</div>
+						<!-- // end of testimonial box --> <img
+						src="images/testimonial-bottom.png" class="testimonial-bottom"/>
+							<span class="author"><strong>John Doe Marsden,</strong>
+								Doe Vox </span>
+							<div class="clear"></div>
+					</li>
+					<li>
+						<div class="testimonial">
+							<p>Having assistro Live Chat on our Webpite, it gives us the
+								opporo Live Chat on our Webpite, it gives usro Live Chat on our
+								Webpite, it gives usrtunity to gain trust and then close the
+								sale. We love it!</p>
+						</div>
+						<!-- // end of testimonial box --> <img
+						src="images/testimonial-bottom.png" class="testimonial-bottom"/>
+							<span class="author"><strong>Johan Kroif,</strong> New
+								York </span>
+							<div class="clear"></div>
+					</li>
+					<li>
+						<div class="testimonial">
+							<p>Having assistro Live the opporo Live Chat on our Webpite,
+								it gives usro Live Chat on our Webpite, it gives usrtunity to
+								gain trust and then close the sale. We love it!</p>
+						</div>
+						<!-- // end of testimonial box --> <img
+						src="images/testimonial-bottom.png" class="testimonial-bottom"/>
+							<span class="author"><strong>Inova Kris,</strong> Belgrade
+						</span>
+							<div class="clear"></div>
+					</li>
+				</ul>
+				<!-- // end of slider --> </section>
+				<!-- // testimonials --> <section id="companies-logos"> <header>
+				<h2>Some of the companies using Assistro</h2>
+				</header>
+				<ul id="slider2">
+					<li>
+						<div class="image-holder">
+							<img src="images/logos/marsden-vax.jpg"/>
+								<p>
+									<a href="#">Marsden Vox</a>
+								</p>
+						</div>
+						<div class="image-holder">
+							<img src="images/logos/master.jpg"/>
+								<p>
+									<a href="#">Master Mobile</a>
+								</p>
+						</div>
+						<div class="image-holder">
+							<img src="images/logos/marsden-vax.jpg"/>
+								<p>
+									<a href="#">Marsden Vox</a>
+								</p>
+						</div>
+					</li>
+					<li>
+						<div class="image-holder">
+							<img src="images/logos/marsden-vax.jpg"/>
+								<p>
+									<a href="#">Marsden Vox</a>
+								</p>
+						</div>
+						<div class="image-holder">
+							<img src="images/logos/master.jpg"/>
+								<p>
+									<a href="#">Master Mobile</a>
+								</p>
+						</div>
+						<div class="image-holder">
+							<img src="images/logos/marsden-vax.jpg"/>
+								<p>
+									<a href="#">Marsden Vox</a>
+								</p>
+						</div>
+					</li>
+					<li>
+						<div class="image-holder">
+							<img src="images/logos/marsden-vax.jpg"/>
+								<p>
+									<a href="#">Marsden Vox</a>
+								</p>
+						</div>
+						<div class="image-holder">
+							<img src="images/logos/master.jpg"/>
+								<p>
+									<a href="#">Master Mobile</a>
+								</p>
+						</div>
+						<div class="image-holder">
+							<img src="images/logos/marsden-vax.jpg"/>
+								<p>
+									<a href="#">Marsden Vox</a>
+								</p>
+						</div>
+					</li>
+
+				</ul>
+				</section>
+				<!-- // logos and brands -->
+				<div class="clear"></div>
+
+				<div class="clear"></div></section>
+		<!-- // inner page content -->
+
+		<div id="homepage-content-bottom"></div>
+
+		<section id="take-a-tour"> <header id="take-a-tour-header">
+		<h1>Assistro is all-in-one live chat software solution</h1>
+		<h2>Connect with your web visitors, engage them in conversation, convert them in to leads or sales.</h2>
+		</header><!-- // header of take a tour --> <a href="/pages/features.html" class="take-a-tour-btn"
+			title="Take a Tour">Take a Tour</a> </section>
+		<!-- // take a tour -->
+	</ui:define>
+</ui:composition>
+</html>

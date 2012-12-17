@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/MainLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | Pricing</title>
+	</ui:define>
+	<ui:define name="head">
+		<script type="text/javascript">
+			function chk() {
+				document.getElementsByClassName('msg').setAttribute("style",
+						"display:block");
+			}
+			function ckhag() {
+				document.getElementById('msg').setAttribute("style",
+						"display:none");
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/tabs3.css" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<section id="inner-page-header">
+				<img src="images/mascot3.png" class="mascot2" />
+				<hgroup>
+					<h1>Plans and Pricing</h1>
+					<h2>Choose the plan that best suits you!</h2>
+				</hgroup>
+				<p:commandLink onclick="signupDlg.show()"
+					rendered="#{userBean.loggedInUser.active==true?'false':'true'}"
+					styleClass="get-started-now-btn-small">
+				</p:commandLink>
+				<div class="clear"></div>
+			</section>
+		</h:form>
+		<!-- // inner page header -->
+
+		<section id="help-area">
+			<a href="/pages/contact.html" title="Need help? Contact us!">Need
+				help? Contact us!</a>
+			<div class="clear"></div>
+		</section>
+		<!-- // help area -->
+
+		<section id="inner-page-content">
+			<section id="plans">
+				<header>
+					<h1>Which plan works best for you?</h1>
+				</header>
+
+				<div class="fade">
+					<ul class="tabs">
+						<li><a href="#item1" id="itemce1">Basic</a></li>
+						<li><a href="#item2" id="itemce2">Premium <span>basic
+									+ chat monitoring</span> </a></li>
+					</ul>
+					<h:form>
+						<div class="items">
+							<div id="item1">
+								<p class="preNote">Live Chat with your website visitors!</p>
+								<section class="package-small">
+									<header>
+										<h2>Small Biz</h2>
+										<h3>
+											$9<span>/month</span>
+										</h3>
+									</header>
+									<ul>
+										<li>Unlimited Chats<h:outputText id="ss1"
+												styleClass="moreInfo" /> <p:tooltip for="ss1"
+												value="Chat with an unlimited number of customers each month."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+										<li>2 operators<h:outputText id="ss2"
+												styleClass="moreInfo" /> <p:tooltip for="ss2"
+												value="Number of operators you can have available to chat with your customers."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+										<li>Google Talk Integration<h:outputText id="ss3"
+												styleClass="moreInfo" /> <p:tooltip for="ss3"
+												value="Connect with your website visitors on your PC, Mac, Tablet or Smartphone with the power and reliability of Google Talk."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+										<li>User Analytics/Reporting<h:outputText id="ss4"
+												styleClass="moreInfo" /> <p:tooltip for="ss4"
+												value=" Full reporting on the number of conversations we are having, the time spent chatting, and full chat transcripts stored for 30 days for your reference."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+									</ul>
+									<p:commandLink id="Small_Business" value=""
+										styleClass="sign-btn" onclick="signupDlg.show()"
+										actionListener="#{userBean.getPricingInfo}"
+										rendered="#{userBean.loggedInUser.active?'false':'true'}"
+										update=":signupForm:userEmail,:signupForm:password,:signupForm:confirmpassword" />
+								</section>
+								<!-- // package small -->
+
+								<section class="big-package">
+									<header>
+										<h2>Medium biz</h2>
+										<h3>
+											$18<span>/month</span>
+										</h3>
+									</header>
+									<span class="content-package">
+										<ul>
+											<li>Unlimited Chats<h:outputText id="ms1"
+												styleClass="moreInfo" /> <p:tooltip for="ms1"
+												value="Chat with an unlimited number of customers each month."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+											<li>4 operators<h:outputText id="ms2"
+												styleClass="moreInfo" /> <p:tooltip for="ms2"
+												value="Number of operators you can have available to chat with your customers."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+											<li>Google Talk Integration<h:outputText id="ms3"
+												styleClass="moreInfo" /> <p:tooltip for="ms3"
+												value="Connect with your website visitors on your PC, Mac, Tablet or Smartphone with the power and reliability of Google Talk."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+											<li>User Analytics and Reporting<h:outputText id="ms4"
+												styleClass="moreInfo" /> <p:tooltip for="ms4"
+												value=" Full reporting on the number of conversations we are having, the time spent chatting, and full chat transcripts stored for 30 days for your reference."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+										</ul> <p:commandLink id="Medium" value="" styleClass="sign-btn"
+											onclick="signupDlg.show()"
+											actionListener="#{userBean.getPricingInfo}"
+											rendered="#{userBean.loggedInUser.active?'false':'true'}"
+											update=":signupForm:userEmail,:signupForm:password,:signupForm:confirmpassword" />
+									</span>
+									<div class="clear"></div>
+									<span class="content-package-bottom"></span>
+								</section>
+								<!-- // big package -->
+
+								<section class="package-small-2">
+									<header>
+										<h2>Big biz</h2>
+										<h3>
+											$36<span>/month</span>
+										</h3>
+									</header>
+									<ul>
+										<li>Unlimited Chats<h:outputText id="bs1"
+												styleClass="moreInfo" /> <p:tooltip for="bs1"
+												value="Chat with an unlimited number of customers each month."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+										<li>8 operators<h:outputText id="bs2"
+												styleClass="moreInfo" /> <p:tooltip for="bs2"
+												value="Number of operators you can have available to chat with your customers."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+										<li>Google Talk Integration<h:outputText id="bs3"
+												styleClass="moreInfo" /> <p:tooltip for="bs3"
+												value="Connect with your website visitors on your PC, Mac, Tablet or Smartphone with the power and reliability of Google Talk."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+										<li>User Analytics/Reporting<h:outputText id="bs4"
+												styleClass="moreInfo" /> <p:tooltip for="bs4"
+												value=" Full reporting on the number of conversations we are having, the time spent chatting, and full chat transcripts stored for 30 days for your reference."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" /></li>
+									</ul>
+									<p:commandLink id="Big_Business" value="" styleClass="sign-btn"
+										onclick="signupDlg.show()"
+										actionListener="#{userBean.getPricingInfo}"
+										rendered="#{userBean.loggedInUser.active?'false':'true'}"
+										update=":signupForm:userEmail,:signupForm:password,:signupForm:confirmpassword" />
+								</section>
+								<!-- // package small -->
+
+							</div>
+							<!-- // feature 1 -->
+							<div id="item2">
+							<p class="preNote">Too busy to stop and chat? Let us monitor
+									it for you!</p>					
+								<section class="package-small">
+									<header>
+										<h2>Small Biz Plus</h2>
+										<h3>
+											$270<span>/month</span>
+										</h3>
+									</header>
+									<ul>
+										<li>150 Conversations<h:outputText id="s1"
+												styleClass="moreInfo" /> <p:tooltip for="s1"
+												value="The number of conversations our operators will handle on your behalf per month"
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+										<li>Experienced Operators<h:outputText id="s2"
+												styleClass="moreInfo" /> <p:tooltip for="s2"
+												value=" Our operators receive training on what your business offers, and who your target market is, and whether your goals are to capture leads or answer basic questions.   Our experienced team is professional at all times and will only respond with the information you ask us to provide"
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+										<li>10 FAQ’s<h:outputText id="s3"
+												styleClass="moreInfo" /> <p:tooltip for="s3"
+												value="We work with you to identify the questions your customers might ask, and the responses you want us to provide."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+										<li> User Analytics/Reporting<h:outputText id="s4"
+												styleClass="moreInfo" /> <p:tooltip for="s4"
+												value=" Full reporting on the number of conversations we are having, the time spent chatting, and full chat transcripts stored for 30 days for your reference."
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+										<li> 7 Days per Week<h:outputText id="s5"
+												styleClass="moreInfo" /> <p:tooltip for="s5"
+												value=" We monitor your website from 8am to 8pm (AEST), 7 days per week!"
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+									</ul>
+									<p:commandLink id="Small_Business_Chat" value=""
+										styleClass="sign-btn" onclick="signupDlg.show()"
+										actionListener="#{userBean.getPricingInfo}"
+										rendered="#{userBean.loggedInUser.active?'false':'true'}"
+										update=":signupForm:userEmail,:signupForm:password,:signupForm:confirmpassword" />
+								</section>
+								<!-- // package small -->
+
+								<section class="big-package">
+									<header>
+										<h2>Medium Biz Plus</h2>
+										<h3>
+											$399<span>/month</span>
+										</h3>
+									</header>
+									<span class="content-package">
+										<ul>
+											<li>250 Conversations<h:outputText id="m1"
+													styleClass="moreInfo" /> <p:tooltip for="m1"
+													value="The number of conversations our operators will handle on your behalf per month"
+													showEffect="slide" hideEffect="fold"
+													styleClass="moreInfoCont" />
+											</li>
+											<li>Experienced Operators<h:outputText id="m2"
+													styleClass="moreInfo" /> <p:tooltip for="m2"
+													value=" Our operators receive training on what your business offers, and who your target market is, and whether your goals are to capture leads or answer basic questions.   Our experienced team is professional at all times and will only respond with the information you ask us to provide"
+													showEffect="slide" hideEffect="fold"
+													styleClass="moreInfoCont" />
+											</li>
+											<li>15 FAQ's<h:outputText id="m3" styleClass="moreInfo" />
+												<p:tooltip for="m3"
+													value="We work with you to identify the questions your customers might ask, and the responses you want us to provide."
+													showEffect="slide" hideEffect="fold"
+													styleClass="moreInfoCont" />
+											</li>
+											<li>User Analytics and Reporting<h:outputText id="m4"
+													styleClass="moreInfo" /> <p:tooltip for="m4"
+													value=" Full reporting on the number of conversations we are having, the time spent chatting, and full chat transcripts stored for 30 days for your reference."
+													showEffect="slide" hideEffect="fold"
+													styleClass="moreInfoCont" />
+											</li>
+											<li> 7 Days per Week<h:outputText id="m5"
+												styleClass="moreInfo" /> <p:tooltip for="m5"
+												value=" We monitor your website from 8am to 8pm (AEST), 7 days per week!"
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+										</ul> <p:commandLink id="Medium_Chat" value=""
+											styleClass="sign-btn" onclick="signupDlg.show()"
+											actionListener="#{userBean.getPricingInfo}"
+											rendered="#{userBean.loggedInUser.active?'false':'true'}"
+											update=":signupForm:userEmail,:signupForm:password,:signupForm:confirmpassword" />
+									</span>
+									<div class="clear"></div>
+									<span class="content-package-bottom"></span>
+								</section>
+								<!-- // big package -->
+
+								<section class="package-small-2">
+									<header>
+										<h2>Big Biz Plus</h2>
+										<h3>
+											$699<span>/month</span>
+										</h3>
+									</header>
+									<ul>
+										<li>500 Conversations<h:outputText id="b1"
+												styleClass="moreInfo" /> <p:tooltip for="b1"
+												value="The number of conversations our operators will handle on your behalf per month"
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+										<li>Experienced Operators<h:outputText id="b2"
+												styleClass="moreInfo" /> <p:tooltip for="b2"
+												value=" Our operators receive training on what your business offers, and who your target market is, and whether your goals are to capture leads or answer basic questions.   Our experienced team is professional at all times and will only respond with the information you ask us to provide"
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+										<li>15 FAQ's<h:outputText id="b3" styleClass="moreInfo" />
+												<p:tooltip for="b3"
+													value="We work with you to identify the questions your customers might ask, and the responses you want us to provide."
+													showEffect="slide" hideEffect="fold"
+													styleClass="moreInfoCont" />
+											</li>
+											<li>User Analytics/Reporting<h:outputText id="b4"
+													styleClass="moreInfo" /> <p:tooltip for="b4"
+													value=" Full reporting on the number of conversations we are having, the time spent chatting, and full chat transcripts stored for 30 days for your reference."
+													showEffect="slide" hideEffect="fold"
+													styleClass="moreInfoCont" />
+											</li>
+											<li> 7 Days per Week<h:outputText id="b5"
+												styleClass="moreInfo" /> <p:tooltip for="b5"
+												value=" We monitor your website from 8am to 8pm (AEST), 7 days per week!"
+												showEffect="slide" hideEffect="fold"
+												styleClass="moreInfoCont" />
+										</li>
+									</ul>
+									<p:commandLink id="Big_Bussiness_Chat" value=""
+										styleClass="sign-btn" onclick="signupDlg.show()"
+										actionListener="#{userBean.getPricingInfo}"
+										rendered="#{userBean.loggedInUser.active?'false':'true'}"
+										update=":signupForm:userEmail,:signupForm:password,:signupForm:confirmpassword" />
+								</section>
+								<!-- // package small -->
+							</div>
+							<!-- // feature 1 -->
+						</div>
+					</h:form>
+
+				</div>
+				<div class="clear"></div>
+				<script type="text/javascript" src="js/jquery.idTabs3.js"></script>
+				<script type="text/javascript">
+					var fade = function(id, s) {
+						s.tabs.removeClass(s.selected);
+						s.tab(id).addClass(s.selected);
+						s.items.fadeOut();
+						s.item(id).fadeIn();
+						return false;
+					};
+					$.fn.fadeTabs = $.idTabs.extend(fade);
+					$(".fade").fadeTabs();
+				</script>
+				<div class="clear"></div>
+
+				<h:form>
+					<p class="package-notify">
+						Still not convinced? Try our free
+						<p:commandLink id="Flying_Solo" value="FLYING SOLO"
+							style="color:red;" onclick="signupDlg.show()"
+							actionListener="#{userBean.getPricingInfo}"
+							rendered="#{userBean.loggedInUser.active?'false':'true'}"
+							update=":signupForm:userEmail,:signupForm:password,:signupForm:confirmpassword" />
+						package and receive 10 free Chats per month
+					</p>
+				
+				<img src="images/soft-shadow-2.jpg" />
+				<p class="package-notify-2">
+					Interested in becoming an affiliate? Register your interest
+					<a href="/pages/contact.html">here</a>
+				</p>
+				</h:form>
+			</section>
+			<!-- // plans -->
+
+			<div class="clear"></div>
+		</section>
+		<!-- // inner page content -->
+
+		<div id="homepage-content-bottom"></div>
+
+		<section id="take-a-tour">
+			<header id="take-a-tour-header">
+				<h1>Assistro is all-in-one live chat software solution</h1>
+				<h2>Connect with your web visitors, engage them in conversation, convert them in to leads or sales.</h2>
+			</header>
+			<!-- // header of take a tour -->
+			<a href="/pages/features.html" class="take-a-tour-btn"
+				title="Take a Tour">Take a Tour</a>
+		</section>
+		<!-- // take a tour -->
+	</ui:define>
+	<div class="clear"></div>
+
+</ui:composition>
+</html>

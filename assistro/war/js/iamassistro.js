@@ -345,6 +345,10 @@
 	assistro.config.chkPro = false;
 	var chatMessages;
 	var chkSend = true;
+	var chkMin = false;
+	var msgCount = 0;
+	var chkMessagz = false;
+	var beforeOpen = true;
 
 	assistro.config.EMAIL_VALIDITY_REGEXP = /^[\w\d.%-]+@[\w\d.-]+\.[\w]{2,4}$/;
 
@@ -802,6 +806,13 @@
 										m.message_sender, 1);
 								updateImageName();
 							}
+							if(chkMin){
+								if(m.message_sender != null){
+									msgCount = msgCount+1;
+								}
+								$('#new_msg').show();
+								document.getElementById('msg_counter').innerHTML = msgCount;
+							}
 							senderHtml = '<strong class=visitor>'
 									+ m.message_sender + ': </strong>';
 						}
@@ -812,18 +823,9 @@
 						senderMsg.className = "chatMessage";
 
 						senderMsg.innerHTML = senderHtml + m.message_text;
-
 						cahtDiv.appendChild(senderMsg);
-
 						var divEle = document.getElementById('content_1');
-						if(m.l_id-messageData.last_id >= 2 && messageData.last_id != 0){
-							messageData.last_id = m.l_id-1;
-							break;
-						}
-						else{
-							divEle.appendChild(cahtDiv);
-							
-						}
+						divEle.appendChild(cahtDiv);
 						divEle.scrollTop = divEle.scrollHeight;
 					}
 				}
@@ -861,6 +863,7 @@
 
 		// Minimize the Online Chat Dialog to Collapsed State
 		$('#chat-app-top-window .minimize').click(function() {
+			chkMin = true;			
 			$('#chat-app-wrapper').hide();
 			$('#live-chat-btn').show();
 		});
@@ -868,12 +871,38 @@
 		// Maximize the online widget from collapsed state
 		$('#live-chat-btn').click(function() {
 			// $(this).hide();
+			msgCount = 0;
+			chkMin = false; 
+			beforeOpen = false;
+			$('#new_msg').hide();
+			
 			$('#live-chat-btn').hide();
 
 			$('#chat-app-wrapper').show();
+			var divEle = document.getElementById('content_1');
+			divEle.scrollTop = divEle.scrollHeight;
 
 			$('div.chat_container div.live-chat .type_text').focus();
 		});
+		
+		// Maximize the online widget from new Message Bubble
+		$('#new_msg').click(function() {
+			// $(this).hide();
+			msgCount = 0;
+			chkMin = false; 
+			beforeOpen = false;
+			$('#new_msg').hide();
+			
+			$('#live-chat-btn').hide();
+
+			$('#chat-app-wrapper').show();
+			
+			var divEle = document.getElementById('content_1');
+			divEle.scrollTop = divEle.scrollHeight;
+
+			$('div.chat_container div.live-chat .type_text').focus();
+		});
+
 
 		// Close the Online Chat Dialog
 		$('#chat-app-top-window .cross').click(function() {
@@ -918,6 +947,24 @@
 
 		
 		function messagesLongPoll() {
+			if(document.getElementById('live-chat-btn').style.display=='block' && messageData.last_id!=0){
+				if(!chkMessagz){
+					chkMessagz=true;
+					if(!beforeOpen){
+						$('#new_msg').hide();
+						chkMin = false;
+					}else{
+						chkMin = true;
+					}				
+				}				
+			}else if(document.getElementById('chat-app-wrapper').style.display=='block'){
+				if(!chkMessagz){
+					chkMessagz=true;
+					$('#new_msg').hide();
+					msgCount = 0;
+				}				
+			}
+			
 			assistro.utils.mergeObj(messageData, virtism_config);
 
 			assistro.dataTransport.sendData({
@@ -1023,6 +1070,49 @@
 						});
 			}
 		};
+		
+		window.onbeforeunload = function (e) {
+			  var e = e || window.event;
+			  // For IE and Firefox
+			  if (e) {
+				  var now = new Date();
+				  var time = now.getTime();
+				  time += 3600 * 1000;
+				  now.setTime(time);
+				  document.cookie =
+					  'msgCount='+msgCount+'; expires='+now.toGMTString()+'; path=/';
+			  }else{
+			  // For Safari
+			  var now = new Date();
+			  var time = now.getTime();
+			  time += 3600 * 1000;
+			  now.setTime(time);
+			  document.cookie =
+				  'msgCount='+msgCount+'; expires='+now.toGMTString()+'; path=/';
+			  }
+			}
+		
+		if(assistro.cookies.getCookie('chkFirstMessage')==null && document.getElementById('live-chat-btn').style.display=='block'){
+			msgCount = 1;
+			var now = new Date();
+			  var time = now.getTime();
+			  time += 3600 * 1000;
+			  now.setTime(time);
+			  document.cookie =
+				  'chkFirstMessage='+msgCount+'; expires='+now.toGMTString()+'; path=/';	
+			  document.cookie =
+				  'msgCount='+msgCount+'; expires='+now.toGMTString()+'; path=/';
+		}
+		
+		if(assistro.cookies.getCookie('msgCount') != null){
+			msgCount = parseInt(assistro.cookies.getCookie('msgCount'));
+			if(msgCount == 0){
+				$('#new_msg').hide();
+			}else{
+				$('#new_msg').show();
+				document.getElementById('msg_counter').innerHTML = msgCount;				
+			}				
+		}
 
 		if (assistro.cookies.getCookie('agentName') != null) {
 		//	(function() {

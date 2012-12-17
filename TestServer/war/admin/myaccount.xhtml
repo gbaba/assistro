@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:template="/template/MainLayout.xhtml">
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+<ui:define name="title"><title>Assistro | Account info</title></ui:define>
+	<ui:define name="content">
+	
+		<section id="ui-help-area"> <nav>
+		<ul>
+			<li><a href="/dashboard.html">Home</a></li>
+			<li><a href="/admin/myaccount.html">My Account</a></li>
+			<li><a href="#">Reset Password</a></li>
+		</ul>
+		</nav> <a href="#" title="Need help? Contact us!" class="help-btn">Need
+			help? Contact us!</a> </section>	
+		<section id="ui-content">					
+			<section id="account_info">
+			<h:form>
+				<header>
+					<!-- <h1>Edit your Account</h1> -->
+				</header>
+				<br/>
+				<label>Full Name</label>
+				<h:inputText value="#{userBean.user.fullName}"
+					maxlength="26" />
+				<span class="liner"></span> 
+				
+				<label>Company</label>
+				<h:inputText value="#{userBean.user.company}"
+					maxlength="26" />
+				<span class="liner"></span> 
+				
+				<label>Business Plan</label>
+				<h:inputText value="#{userBean.user.businessPlan}"
+					maxlength="26" />
+				<span class="liner"></span>
+				
+				<label>Email Address</label>
+				<h:inputText value="#{userBean.user.email}"
+					maxlength="26" />
+				<span class="liner"></span>
+				
+				<label>Address</label>
+				<h:inputText value="#{userBean.user.address}"
+					maxlength="26" />
+				<span class="liner"></span>
+				
+				<label>City</label>
+				<h:inputText id="col5h" value="#{userBean.user.city}"
+					maxlength="26" />
+				<span class="liner"></span>
+				
+				<label>State</label>
+				<h:inputText value="#{userBean.user.state}"
+					maxlength="26" />
+				<span class="liner"></span>
+				
+				<label>Phone</label>
+				<h:inputText value="#{userBean.user.phone}"
+					maxlength="26" />
+				<span class="liner"></span>
+				
+				<label>Country</label>
+				<h:inputText value="#{userBean.user.country}"
+					maxlength="26" />
+				<span class="liner"></span>
+				
+				<p:commandLink id="widBut" action="#{userBean.update}"
+				>
+				<h:graphicImage value="images/update-submit.png"/>
+				</p:commandLink>
+			</h:form>
+			</section>			
+		</section>		
+		<div id="ui-content-bottom"></div>
+</ui:define>
+</ui:composition>
+</html>

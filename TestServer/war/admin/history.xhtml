@@ -1,0 +1,110 @@
+<!DOCTYPE html 
+
+         PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/AdminLayout.xhtml">
+	<ui:define name="title">
+		<title>Assistro | History</title>
+	</ui:define>
+<ui:define name="head">	
+			<style>
+.my_dtheader th,.my_dtheader tr {
+	background: none !important;
+	padding: 0px !important;
+	border: none !important;
+	
+	height: 36px;
+line-height: 40px;
+font-size: 14px;
+color: white;
+font-family: 'PTSansRegular';
+text-shadow: 1px 1px 1px #6F7579;
+}
+
+.ui-datatable tfoot td {
+	padding: 0px !important;
+	border: none !important;
+}
+
+.ui-datatable .ui-datatable-data td,.ui-datatable .ui-datatable-data-empty td
+	{
+	border-style: none !important;
+}
+
+.ui-growl {
+	
+}
+</style>
+</ui:define>
+	<ui:define name="content">
+		<section id="ui-help-area"> <nav>
+		<ul>
+			<li><a href="#">This Week</a></li>
+			<li><a href="#">Previous</a></li>
+		</ul>
+		</nav> <a href="#" title="Need help? Contact us!" class="help-btn">Need
+			help? Contact us!</a> </section>
+		<!-- // help area -->
+		<section id="ui-content"> <section id="history"> <h:form>
+			<h:commandLink id="fileDownload" action="#{userBean.excelService}"
+				ajax="false" styleClass="export-btn" />
+			<p:tooltip for="fileDownload"
+				value="Export before chat Widget Data. Please wait... It will take some time depends upon the size of file."
+				showEffect="slide" hideEffect="slide" />
+		 <p:dataTable value="#{userBean.userChatHistory}" var="chat" id="chatTable" styleClass="my_dtheader historytable">
+			<p:column styleClass="tableHeading" role="col">
+				<f:facet name="header">
+					<h:outputText value="Type" />
+				</f:facet>
+				<p:commandLink value="Chat" ajax="false"
+					action="/admin/detailHistory.html"
+					actionListener="#{userBean.sethistory}">
+					<f:param name="entryToRemoveIndex" value="#{chat}" />
+				</p:commandLink>
+			</p:column>
+
+			<p:column> 
+				<f:facet name="header">
+					<h:outputText value="Day And Time" />
+				</f:facet>
+				<h:outputText value="#{chat.chatTime}">
+					<f:convertDateTime pattern="dd MMM yyyy HH:mm" />
+				</h:outputText>
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Visitor Email" />
+				</f:facet>
+				<h:outputText value="#{chat.vistorId}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Chat Agent" />
+				</f:facet>
+				<h:outputText value="#{chat.agentId}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Duration" />
+				</f:facet>
+				<h:outputText value="#{chat.messageCount} min" />
+			</p:column>
+
+		</p:dataTable> </h:form></section>
+		<div class="clear"></div>
+		</section>
+		<div id="ui-content-bottom"></div>
+	</ui:define>
+</ui:composition>
+</html>
